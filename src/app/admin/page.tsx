@@ -9,7 +9,6 @@ export default function AdminPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isAddingProduct, setIsAddingProduct] = useState(false);
-  const [editingProduct, setEditingProduct] = useState<Product | null>(null);
   const [formData, setFormData] = useState({
     name: '',
     nameEn: '',
@@ -31,6 +30,7 @@ export default function AdminPage() {
     weight: '',
     dimensions: ''
   });
+  const [editingProduct, setEditingProduct] = useState<Product | null>(null);
 
   useEffect(() => {
     setProducts(getProducts());
@@ -84,51 +84,6 @@ export default function AdminPage() {
         ...prev,
         features: prev.features.filter((_: string, i: number) => i !== index)
       }));
-    }
-  };
-
-  const handleSpecificationChange = (key: string, value: string, isEnglish: boolean = false) => {
-    if (isEnglish) {
-      setFormData(prev => ({
-        ...prev,
-        specificationsEn: { ...prev.specificationsEn, [key]: value }
-      }));
-    } else {
-      setFormData(prev => ({
-        ...prev,
-        specifications: { ...prev.specifications, [key]: value }
-      }));
-    }
-  };
-
-  const addSpecification = (isEnglish: boolean = false) => {
-    const newKey = `spec_${Date.now()}`;
-    if (isEnglish) {
-      setFormData(prev => ({
-        ...prev,
-        specificationsEn: { ...prev.specificationsEn, [newKey]: '' }
-      }));
-    } else {
-      setFormData(prev => ({
-        ...prev,
-        specifications: { ...prev.specifications, [newKey]: '' }
-      }));
-    }
-  };
-
-  const removeSpecification = (key: string, isEnglish: boolean = false) => {
-    if (isEnglish) {
-      setFormData(prev => {
-        const newSpecs = { ...prev.specificationsEn };
-        delete newSpecs[key];
-        return { ...prev, specificationsEn: newSpecs };
-      });
-    } else {
-      setFormData(prev => {
-        const newSpecs = { ...prev.specifications };
-        delete newSpecs[key];
-        return { ...prev, specifications: newSpecs };
-      });
     }
   };
 
@@ -196,7 +151,7 @@ export default function AdminPage() {
     setIsAddingProduct(true);
   };
 
-  const handleDelete = (productId: string) => {
+  const handleDelete = (_productId: string) => {
     if (confirm('Are you sure you want to delete this product?')) {
       alert('Product deleted successfully! (Backend integration required for persistence)');
     }
