@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import WebPImage from '@/components/WebPImage';
 import { useEffect, useState, useRef } from 'react';
-import { getCategories, getCompanyInfo } from '@/lib/client-data';
+import { getCategories } from '@/lib/client-data';
 
 export default function HomePage() {
   const [showFeatured, setShowFeatured] = useState(false);

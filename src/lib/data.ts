@@ -34,10 +34,16 @@ export function getCategories(): Category[] {
       categoryMap.set(product.category, {
         id: product.category,
         name: product.category,
+        nameEn: product.categoryEn,
         description: `${product.category}类产品`,
-        image: `/images/categories/${product.category.toLowerCase()}.jpg`
+        descriptionEn: `${product.categoryEn} products`,
+        image: `/images/categories/${product.category.toLowerCase()}.jpg`,
+        productCount: 0
       });
     }
+    // 更新产品数量
+    const category = categoryMap.get(product.category)!;
+    category.productCount++;
   });
   
   return Array.from(categoryMap.values());

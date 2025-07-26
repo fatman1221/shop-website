@@ -1,7 +1,5 @@
 import { notFound } from 'next/navigation';
 import { getProductById, getProducts } from '@/lib/client-data';
-import WebPImage from '@/components/WebPImage';
-import Link from 'next/link';
 import ProductDetailClient from './ProductDetailClient';
 
 interface ProductDetailPageProps {
