@@ -1,18 +1,16 @@
 'use client';
 
-import { getProducts, getCompanyInfo, getCategories } from '@/lib/client-data';
-import ProductCard from '@/components/ProductCard';
-import WebPImage from '@/components/WebPImage';
 import Link from 'next/link';
+import WebPImage from '@/components/WebPImage';
 import { useEffect, useState, useRef } from 'react';
+import { getCategories, getCompanyInfo } from '@/lib/client-data';
 
 export default function HomePage() {
-  const products = getProducts().slice(0, 4);
-  const categories = getCategories().slice(0, 4);
-  const companyInfo = getCompanyInfo();
-  const [isLoaded, setIsLoaded] = useState(false);
   const [showFeatured, setShowFeatured] = useState(false);
   const featuredRef = useRef<HTMLDivElement>(null);
+  const categories = getCategories();
+  const companyInfo = getCompanyInfo();
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     setIsLoaded(true);
@@ -176,7 +174,7 @@ export default function HomePage() {
             Ready to Start Trading?
           </h2>
           <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
-            Get in touch with us to discuss your import and export needs. We're here to help you succeed in the global market.
+            Get in touch with us to discuss your import and export needs. We&apos;re here to help you succeed in the global market.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

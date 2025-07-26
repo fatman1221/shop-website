@@ -156,7 +156,7 @@ export default function AboutPage() {
       <div className="bg-blue-600 text-white rounded-lg p-8 text-center">
         <h2 className="text-2xl font-bold mb-4">Ready to Work With Us?</h2>
         <p className="text-lg mb-6">
-          Let's discuss how we can help your business grow globally
+          Let&apos;s discuss how we can help your business grow globally
         </p>
         <a
           href="/contact"

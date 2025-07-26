@@ -4,13 +4,12 @@ import { useState, useEffect } from 'react';
 import { getProducts, getCategories, searchProducts } from '@/lib/client-data';
 import { Product, Category } from '@/types/product';
 import ProductCard from '@/components/ProductCard';
-import WebPImage from '@/components/WebPImage';
 
 export default function ProductsPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
-  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [searchQuery, setSearchQuery] = useState('');
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -42,11 +41,6 @@ export default function ProductsPage() {
     setFilteredProducts(filtered);
   }, [selectedCategories, searchQuery, products]);
 
-  const clearFilters = () => {
-    setSelectedCategories([]);
-    setSearchQuery('');
-  };
-
   const toggleCategory = (categoryName: string) => {
     setSelectedCategories(prev => 
       prev.includes(categoryName)
@@ -54,13 +48,6 @@ export default function ProductsPage() {
         : [...prev, categoryName]
     );
   };
-
-  const productImages = [
-    '/images/products/iker-urteaga-TL5Vy1IM-uA-unsplash.webp',
-    '/images/products/evangeline-sarney-NnsqpLjiA94-unsplash.webp',
-    '/images/products/spruce-refillable-cleaning-OxdnFg-I3Lc-unsplash.webp',
-    '/images/products/anastasiya-badun-SbgKbW9VQ5U-unsplash.webp'
-  ];
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 bg-gradient-to-br from-purple-50 via-indigo-50 to-pink-50 min-h-screen">
@@ -133,7 +120,7 @@ export default function ProductsPage() {
                   )}
                   {searchQuery && (
                     <span className="inline-block bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">
-                      Search: "{searchQuery}"
+                      Search: &quot;{searchQuery}&quot;
                       <button
                         onClick={() => setSearchQuery('')}
                         className="ml-2 text-gray-600 hover:text-gray-800"
