@@ -9,12 +9,6 @@ export default function HomePage() {
   const [showFeatured, setShowFeatured] = useState(false);
   const featuredRef = useRef<HTMLDivElement>(null);
   const categories = getCategories();
-  const companyInfo = getCompanyInfo();
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    setIsLoaded(true);
-  }, []);
 
   useEffect(() => {
     const onScroll = () => {
