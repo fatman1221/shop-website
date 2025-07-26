@@ -1,0 +1,139 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "智能蓝牙音箱",
+      "description": "高品质无线蓝牙音箱，支持多种音频格式，内置麦克风，续航时间长达8小时",
+      "price": 89.99,
+      "currency": "USD",
+      "category": "电子产品",
+      "image": "/images/speaker.jpg",
+      "amazonUrl": "https://www.amazon.com/dp/B08XXXXXXX",
+      "features": [
+        "蓝牙5.0连接",
+        "防水设计",
+        "8小时续航",
+        "内置麦克风",
+        "支持多种音频格式"
+      ],
+      "specifications": {
+        "尺寸": "15cm x 8cm x 8cm",
+        "重量": "500g",
+        "电池容量": "2000mAh",
+        "连接方式": "蓝牙5.0",
+        "防水等级": "IPX4"
+      },
+      "inStock": true,
+      "createdAt": "2024-01-15T10:00:00Z",
+      "updatedAt": "2024-01-15T10:00:00Z"
+    },
+    {
+      "id": "2",
+      "name": "多功能厨房刀具套装",
+      "description": "专业级不锈钢刀具套装，包含8件套，适合各种烹饪需求",
+      "price": 129.99,
+      "currency": "USD",
+      "category": "厨房用品",
+      "image": "/images/knife-set.jpg",
+      "amazonUrl": "https://www.amazon.com/dp/B09XXXXXXX",
+      "features": [
+        "德国不锈钢材质",
+        "8件套完整套装",
+        "人体工学设计",
+        "防锈处理",
+        "终身保修"
+      ],
+      "specifications": {
+        "材质": "德国不锈钢",
+        "套装数量": "8件",
+        "刀柄材质": "防滑橡胶",
+        "包装": "精美礼盒",
+        "保修期": "终身"
+      },
+      "inStock": true,
+      "createdAt": "2024-01-16T10:00:00Z",
+      "updatedAt": "2024-01-16T10:00:00Z"
+    },
+    {
+      "id": "3",
+      "name": "便携式咖啡机",
+      "description": "迷你便携咖啡机，支持多种咖啡豆，一键制作浓缩咖啡",
+      "price": 199.99,
+      "currency": "USD",
+      "category": "厨房用品",
+      "image": "/images/coffee-machine.jpg",
+      "amazonUrl": "https://www.amazon.com/dp/B10XXXXXXX",
+      "features": [
+        "便携设计",
+        "一键操作",
+        "支持多种咖啡豆",
+        "快速加热",
+        "易清洗"
+      ],
+      "specifications": {
+        "功率": "1200W",
+        "容量": "350ml",
+        "尺寸": "20cm x 15cm x 25cm",
+        "重量": "1.2kg",
+        "加热时间": "30秒"
+      },
+      "inStock": false,
+      "createdAt": "2024-01-17T10:00:00Z",
+      "updatedAt": "2024-01-17T10:00:00Z"
+    },
+    {
+      "id": "4",
+      "name": "无线充电器",
+      "description": "15W快速无线充电器，兼容多种设备，LED指示灯显示充电状态",
+      "price": 49.99,
+      "currency": "USD",
+      "category": "电子产品",
+      "image": "/images/wireless-charger.jpg",
+      "amazonUrl": "https://www.amazon.com/dp/B11XXXXXXX",
+      "features": [
+        "15W快速充电",
+        "兼容Qi标准",
+        "LED指示灯",
+        "过充保护",
+        "温度控制"
+      ],
+      "specifications": {
+        "输出功率": "15W",
+        "输入电压": "5V/9V/12V",
+        "尺寸": "10cm x 10cm x 1cm",
+        "重量": "150g",
+        "充电距离": "8mm"
+      },
+      "inStock": true,
+      "createdAt": "2024-01-18T10:00:00Z",
+      "updatedAt": "2024-01-18T10:00:00Z"
+    },
+    {
+      "id": "5",
+      "name": "智能体重秤",
+      "description": "高精度智能体重秤，支持蓝牙连接，可同步到手机APP",
+      "price": 79.99,
+      "currency": "USD",
+      "category": "健康用品",
+      "image": "/images/scale.jpg",
+      "amazonUrl": "https://www.amazon.com/dp/B12XXXXXXX",
+      "features": [
+        "高精度传感器",
+        "蓝牙连接",
+        "APP同步",
+        "多人使用",
+        "自动关机"
+      ],
+      "specifications": {
+        "最大承重": "180kg",
+        "精度": "0.1kg",
+        "尺寸": "30cm x 30cm x 2cm",
+        "重量": "1.5kg",
+        "电池": "4节AAA"
+      },
+      "inStock": true,
+      "createdAt": "2024-01-19T10:00:00Z",
+      "updatedAt": "2024-01-19T10:00:00Z"
+    }
+  ]
+} 
