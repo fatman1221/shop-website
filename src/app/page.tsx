@@ -25,9 +25,9 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white">
+    <main className="min-h-screen blur-gradient-bg">
       {/* Hero Section - Half Image Half Content */}
-      <section className="relative h-screen flex items-center overflow-hidden bg-gradient-to-br from-white via-purple-50 to-indigo-50">
+      <section className="relative h-screen flex items-center overflow-hidden">
         {/* Left Side - Content */}
         <div className="w-1/2 h-full flex items-center justify-center">
           <div className="max-w-lg px-8 text-center transition-all duration-1000 ease-out">
@@ -54,7 +54,7 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-        {/* Right Side - Image 保持不变 */}
+        {/* Right Side - Image */}
         <div className="w-1/2 h-full flex items-center justify-center">
           <div className="relative w-11/12 h-5/6 max-w-xl max-h-[500px] flex items-center justify-center">
             <div className="relative w-full h-full overflow-hidden rounded-[2rem] shadow-2xl border-4 border-white/20 backdrop-blur-sm">
@@ -71,10 +71,17 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+        {/* Scroll down prompt */}
+        <div className="absolute left-1/2 bottom-6 transform -translate-x-1/2 flex flex-col items-center animate-bounce z-20">
+          <svg className="w-8 h-8 text-purple-500 mb-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+          <span className="text-sm text-gray-500">Scroll down to explore</span>
+        </div>
       </section>
 
-      {/* Product Categories Section - Soft Background */}
-      <section className="py-20 bg-gradient-to-br from-purple-50 via-indigo-50 to-pink-50">
+      {/* Product Categories Section */}
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-light text-gray-800 mb-4">
@@ -94,7 +101,7 @@ export default function HomePage() {
               ];
               return (
                 <div key={category.id} className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 hover:border-purple-200">
-                  <div className="aspect-square bg-gradient-to-br from-purple-50 via-indigo-50 to-pink-50 rounded-xl mb-4 flex items-center justify-center overflow-hidden">
+                  <div className="aspect-square bg-gradient-to-br from-white via-purple-25 to-indigo-25 rounded-xl mb-4 flex items-center justify-center overflow-hidden">
                     <WebPImage
                       src={categoryImages[index] || '/images/placeholder.svg'}
                       alt={category.nameEn}
@@ -121,9 +128,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured Products Section - Clean White Background */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6" ref={featuredRef}>
+      {/* Featured Products Section */}
+      <section className="py-20" ref={featuredRef}>
+        <div className="max-w-7xl mx-auto px-6">
           <div className={`text-center mb-16 transition-all duration-1000 ${showFeatured ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}> 
             <h2 className="text-3xl md:text-4xl font-light text-gray-800 mb-4">
               Featured Products
@@ -161,31 +168,31 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA Section - Soft Purple Background */}
-      <section className="py-20 bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-700">
+      {/* CTA Section - Blur Gradient Background */}
+      <section className="py-20">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-light text-white mb-6">
+          <h2 className="text-3xl md:text-4xl font-light text-gray-800 mb-6">
             Ready to Start Trading?
           </h2>
-          <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
             Get in touch with us to discuss your import and export needs. We&apos;re here to help you succeed in the global market.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="bg-white text-purple-700 px-8 py-4 rounded-full text-lg font-medium hover:bg-gray-50 transition-all duration-300 transform hover:scale-105"
+              className="bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-700 text-white px-8 py-4 rounded-full text-lg font-medium hover:from-purple-700 hover:via-indigo-700 hover:to-purple-800 transition-all duration-300 transform hover:scale-105"
             >
               Contact Us
             </Link>
             <Link
               href="/products"
-              className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-white hover:text-purple-700 transition-all duration-300"
+              className="border-2 border-purple-600 text-purple-600 px-8 py-4 rounded-full text-lg font-medium hover:bg-gradient-to-r hover:from-purple-600 hover:to-indigo-600 hover:text-white transition-all duration-300"
             >
               View Products
             </Link>
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

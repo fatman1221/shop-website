@@ -21,8 +21,8 @@ export default function Navbar() {
   return (
     <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-white shadow-sm' 
-        : 'bg-white'
+        ? 'bg-white/90 backdrop-blur-md shadow-sm' 
+        : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
@@ -30,7 +30,7 @@ export default function Navbar() {
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2">
               <span className={`text-xl font-light transition-colors duration-300 ${
-                isScrolled ? 'text-gray-900' : 'text-gray-900'
+                isScrolled ? 'text-gray-900' : 'text-gray-800'
               }`}>
                 {companyInfo.nameEn}
               </span>
@@ -41,7 +41,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-8">
             <Link
               href="/"
-              className={`hover:text-blue-300 px-3 py-2 text-sm font-medium transition-colors duration-300 ${
+              className={`hover:text-purple-600 px-3 py-2 text-sm font-medium transition-colors duration-300 ${
                 isScrolled ? 'text-gray-700' : 'text-gray-700'
               }`}
             >
@@ -49,7 +49,7 @@ export default function Navbar() {
             </Link>
             <Link
               href="/products"
-              className={`hover:text-blue-300 px-3 py-2 text-sm font-medium transition-colors duration-300 ${
+              className={`hover:text-purple-600 px-3 py-2 text-sm font-medium transition-colors duration-300 ${
                 isScrolled ? 'text-gray-700' : 'text-gray-700'
               }`}
             >
@@ -57,7 +57,7 @@ export default function Navbar() {
             </Link>
             <Link
               href="/about"
-              className={`hover:text-blue-300 px-3 py-2 text-sm font-medium transition-colors duration-300 ${
+              className={`hover:text-purple-600 px-3 py-2 text-sm font-medium transition-colors duration-300 ${
                 isScrolled ? 'text-gray-700' : 'text-gray-700'
               }`}
             >
@@ -65,7 +65,7 @@ export default function Navbar() {
             </Link>
             <Link
               href="/contact"
-              className={`hover:text-blue-300 px-3 py-2 text-sm font-medium transition-colors duration-300 ${
+              className={`hover:text-purple-600 px-3 py-2 text-sm font-medium transition-colors duration-300 ${
                 isScrolled ? 'text-gray-700' : 'text-gray-700'
               }`}
             >
