@@ -195,7 +195,7 @@ const categoriesData: Category[] = [
 // Static company information
 const companyInfo: CompanyInfo = {
   name: '环球贸易进出口有限公司',
-  nameEn: 'Global Trade Import & Export Co., Ltd.',
+  nameEn: 'BRAVE DAZZLE INC',
   description: '专业的日常用品和家居百货零售公司，致力于为消费者提供优质、实用的生活必需品',
   descriptionEn: 'Professional retail company specializing in daily essentials and household goods, committed to providing consumers with high-quality, practical necessities for everyday life',
   address: '深圳市南山区科技园南区科苑路123号',

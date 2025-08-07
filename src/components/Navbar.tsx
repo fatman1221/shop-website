@@ -2,27 +2,34 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { getCompanyInfo } from '@/lib/client-data';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
+  const isHomePage = pathname === '/';
   const companyInfo = getCompanyInfo();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      // 只有当滚动超过整个视窗高度时才认为已滚动（离开了hero区域）
+      setIsScrolled(window.scrollY > window.innerHeight - 100);
     };
 
+    // 初始状态确保是透明的
+    setIsScrolled(false);
+    
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-white/20' 
-        : 'bg-black/20 backdrop-blur-sm'
+      isHomePage && !isScrolled
+        ? 'bg-transparent' 
+        : 'bg-white/95 backdrop-blur-md shadow-lg border-b border-white/20'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
@@ -30,8 +37,8 @@ export default function Navbar() {
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2">
               <span className={`text-xl font-light transition-colors duration-300 ${
-                isScrolled ? 'text-gray-900' : 'text-white drop-shadow-lg'
-              }`}>
+                isHomePage && !isScrolled ? 'text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]' : 'text-gray-900'
+              }`} style={isHomePage && !isScrolled ? { textShadow: '0 2px 8px rgba(0,0,0,0.8), 0 1px 4px rgba(0,0,0,0.4)' } : {}}>
                 {companyInfo.nameEn}
               </span>
             </Link>
@@ -42,32 +49,36 @@ export default function Navbar() {
             <Link
               href="/"
               className={`hover:text-purple-400 px-3 py-2 text-sm font-medium transition-colors duration-300 ${
-                isScrolled ? 'text-gray-700 hover:text-purple-600' : 'text-white/90 drop-shadow-md'
+                isHomePage && !isScrolled ? 'text-white/95' : 'text-gray-700 hover:text-purple-600'
               }`}
+              style={isHomePage && !isScrolled ? { textShadow: '0 2px 4px rgba(0,0,0,0.6)' } : {}}
             >
               Home
             </Link>
             <Link
               href="/products"
               className={`hover:text-purple-400 px-3 py-2 text-sm font-medium transition-colors duration-300 ${
-                isScrolled ? 'text-gray-700 hover:text-purple-600' : 'text-white/90 drop-shadow-md'
+                isHomePage && !isScrolled ? 'text-white/95' : 'text-gray-700 hover:text-purple-600'
               }`}
+              style={isHomePage && !isScrolled ? { textShadow: '0 2px 4px rgba(0,0,0,0.6)' } : {}}
             >
               Products
             </Link>
             <Link
               href="/about"
               className={`hover:text-purple-400 px-3 py-2 text-sm font-medium transition-colors duration-300 ${
-                isScrolled ? 'text-gray-700 hover:text-purple-600' : 'text-white/90 drop-shadow-md'
+                isHomePage && !isScrolled ? 'text-white/95' : 'text-gray-700 hover:text-purple-600'
               }`}
+              style={isHomePage && !isScrolled ? { textShadow: '0 2px 4px rgba(0,0,0,0.6)' } : {}}
             >
               About
             </Link>
             <Link
               href="/contact"
               className={`hover:text-purple-400 px-3 py-2 text-sm font-medium transition-colors duration-300 ${
-                isScrolled ? 'text-gray-700 hover:text-purple-600' : 'text-white/90 drop-shadow-md'
+                isHomePage && !isScrolled ? 'text-white/95' : 'text-gray-700 hover:text-purple-600'
               }`}
+              style={isHomePage && !isScrolled ? { textShadow: '0 2px 4px rgba(0,0,0,0.6)' } : {}}
             >
               Contact
             </Link>
@@ -78,8 +89,9 @@ export default function Navbar() {
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className={`focus:outline-none transition-colors duration-300 ${
-                isScrolled ? 'text-gray-700' : 'text-white drop-shadow-md'
+                isHomePage && !isScrolled ? 'text-white' : 'text-gray-700'
               }`}
+              style={isHomePage && !isScrolled ? { filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.6))' } : {}}
             >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 {isMenuOpen ? (
