@@ -6,187 +6,152 @@ import { useEffect, useState, useRef } from 'react';
 import { getCategories } from '@/lib/client-data';
 
 export default function HomePage() {
-  const [showFeatured, setShowFeatured] = useState(false);
-  const featuredRef = useRef<HTMLDivElement>(null);
-  const categories = getCategories();
+  const [currentSlide, setCurrentSlide] = useState(0);
 
+  // All images array for full-screen carousel
+  const allImages = [
+    '/images/index/1753755312_1970_2290195981.webp',
+    '/images/index/1754455341_1846_1658765743.webp',
+    '/images/index/1754455369_1617_2614519433.webp',
+    '/images/index/1754455931_1763_2110344371.webp',
+    '/images/index/1754455939_1348_2560386097.webp',
+    '/images/index/1754455969_1908_2393891865.webp',
+    '/images/index/1754457670_1800_1147815752.webp',
+    '/images/index/1754457678_1150_2307935951.webp',
+    '/images/index/1754457710_1232_2039277554.webp',
+  ];
+
+  // Full-screen carousel effect
   useEffect(() => {
-    const onScroll = () => {
-      if (featuredRef.current) {
-        const rect = featuredRef.current.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) {
-          setShowFeatured(true);
-        }
-      }
-    };
-    window.addEventListener('scroll', onScroll);
-    onScroll();
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % allImages.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [allImages.length]);
 
   return (
-    <main className="min-h-screen blur-gradient-bg">
-      {/* Hero Section - Half Image Half Content */}
-      <section className="relative h-screen flex items-center overflow-hidden">
-        {/* Left Side - Content */}
-        <div className="w-1/2 h-full flex items-center justify-center">
-          <div className="max-w-lg px-8 text-center transition-all duration-1000 ease-out">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-800 mb-8 tracking-tight leading-tight">
-              Quality
-              <span className="block font-normal bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-700 bg-clip-text text-transparent">Daily Essentials</span>
+    <main className="min-h-screen">
+      {/* Full-Screen Image Carousel */}
+      <section className="relative h-screen overflow-hidden">
+        {/* Full-Screen Images */}
+        {allImages.map((image, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+              index === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+            }`}
+          >
+            <WebPImage
+              src={image}
+              alt={`Premium Product ${index + 1}`}
+              fill
+              className="object-cover w-full h-full"
+              priority={index === 0}
+              sizes="100vw"
+            />
+          </div>
+        ))}
+        
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/30"></div>
+        
+        {/* Content Overlay */}
+        <div className="absolute inset-0 flex items-center justify-center z-10">
+          <div className="text-center px-8 max-w-4xl">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-white mb-8 tracking-tight leading-tight drop-shadow-lg">
+              Premium
+              <span className="block font-normal text-white">Daily Essentials</span>
             </h1>
-            <p className="text-xl text-gray-600 mb-10 leading-relaxed font-light">
-              Your one-stop shop for premium household essentials. From personal care to home organization, we bring you carefully curated products that make everyday life better.
+            <p className="text-xl md:text-2xl text-white/90 mb-12 leading-relaxed font-light max-w-2xl mx-auto">
+              Professional cross-border trade providing quality household products
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link
                 href="/products"
-                className="bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-700 text-white px-8 py-4 rounded-full text-lg font-medium hover:from-purple-700 hover:via-indigo-700 hover:to-purple-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                className="bg-white text-gray-900 px-8 py-4 rounded-full text-lg font-medium hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
                 Shop Now
               </Link>
               <Link
                 href="/contact"
-                className="border-2 border-purple-600 text-purple-600 px-8 py-4 rounded-full text-lg font-medium hover:bg-gradient-to-r hover:from-purple-600 hover:to-indigo-600 hover:text-white transition-all duration-300"
+                className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-white hover:text-gray-900 transition-all duration-300"
               >
                 Learn More
               </Link>
             </div>
           </div>
         </div>
-        {/* Right Side - Image */}
-        <div className="w-1/2 h-full flex items-center justify-center">
-          <div className="relative w-11/12 h-5/6 max-w-xl max-h-[500px] flex items-center justify-center">
-            <div className="relative w-full h-full overflow-hidden rounded-[2rem] shadow-2xl border-4 border-white/20 backdrop-blur-sm">
-              <WebPImage
-                src="/images/index/mike-petrucci-c9FQyqIECds-unsplash.webp"
-                alt="Quality Home Essentials"
-                fill
-                className="object-cover w-full h-full"
-                priority
-                sizes="45vw"
-              />
-              {/* 添加渐变遮罩效果 */}
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-indigo-500/10"></div>
-            </div>
-          </div>
+        
+        {/* Navigation Dots */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
+          {allImages.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`w-4 h-4 rounded-full transition-all duration-300 ${
+                index === currentSlide 
+                  ? 'bg-white shadow-lg scale-110' 
+                  : 'bg-white/50 hover:bg-white/70'
+              }`}
+            />
+          ))}
         </div>
-        {/* Scroll down prompt */}
-        <div className="absolute left-1/2 bottom-6 transform -translate-x-1/2 flex flex-col items-center animate-bounce z-20">
-          <svg className="w-8 h-8 text-purple-500 mb-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+        
+        {/* Navigation Arrows */}
+        <button
+          onClick={() => setCurrentSlide((prev) => (prev - 1 + allImages.length) % allImages.length)}
+          className="absolute left-6 top-1/2 transform -translate-y-1/2 text-white/70 hover:text-white transition-colors duration-300 z-20"
+        >
+          <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <button
+          onClick={() => setCurrentSlide((prev) => (prev + 1) % allImages.length)}
+          className="absolute right-6 top-1/2 transform -translate-y-1/2 text-white/70 hover:text-white transition-colors duration-300 z-20"
+        >
+          <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+        
+        {/* Scroll indicator */}
+        <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce z-20">
+          <svg className="w-8 h-8 text-white/70 mb-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
           </svg>
-          <span className="text-sm text-gray-500">Scroll down to explore</span>
+          <span className="text-sm text-white/70">Scroll down</span>
         </div>
       </section>
 
-      {/* Product Categories Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-light text-gray-800 mb-4">
-              Product Categories
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Discover our comprehensive range of household essentials
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {categories.map((category, index) => {
-              const categoryImages = [
-                '/images/categories/alexander-andrews-Bvr1TxrLGfs-unsplash.webp',
-                '/images/categories/vladimir-gladkov-d1hKXgFJUKw-unsplash.webp',
-                '/images/categories/artboard-studio-c-KRSHct7Ho-unsplash.webp',
-                '/images/categories/etactics-inc-QkwTbJLT9Bs-unsplash.webp'
-              ];
-              return (
-                <div key={category.id} className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 hover:border-purple-200">
-                  <div className="aspect-square bg-gradient-to-br from-white via-purple-25 to-indigo-25 rounded-xl mb-4 flex items-center justify-center overflow-hidden">
-                    <WebPImage
-                      src={categoryImages[index] || '/images/placeholder.svg'}
-                      alt={category.nameEn}
-                      width={300}
-                      height={300}
-                      className="object-cover w-full h-full rounded-xl"
-                    />
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-800 mb-2">{category.nameEn}</h3>
-                  <p className="text-gray-600 text-sm mb-4 line-clamp-2">{category.descriptionEn}</p>
-                  <Link
-                    href={`/products?category=${category.id}`}
-                    className="text-purple-600 hover:text-indigo-600 font-medium text-sm transition-colors duration-300 flex items-center"
-                  >
-                    View Products
-                    <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </Link>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
 
-      {/* Featured Products Section */}
-      <section className="py-20" ref={featuredRef}>
-        <div className="max-w-7xl mx-auto px-6">
-          <div className={`text-center mb-16 transition-all duration-1000 ${showFeatured ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}> 
-            <h2 className="text-3xl md:text-4xl font-light text-gray-800 mb-4">
-              Featured Products
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Our most popular household products trusted by families worldwide
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              '/images/products/iker-urteaga-TL5Vy1IM-uA-unsplash.webp',
-              '/images/products/evangeline-sarney-NnsqpLjiA94-unsplash.webp',
-              '/images/products/spruce-refillable-cleaning-OxdnFg-I3Lc-unsplash.webp',
-              '/images/products/anastasiya-badun-SbgKbW9VQ5U-unsplash.webp'
-            ].map((image, index) => (
-              <Link href="/products" key={index} className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 focus:outline-none border border-gray-100 hover:border-purple-200">
-                <div className={`aspect-square transition-all duration-1000 ${showFeatured ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-95'}`}> 
-                  <WebPImage
-                    src={image}
-                    alt={`Featured Product ${index + 1}`}
-                    width={400}
-                    height={400}
-                    className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300 rounded-xl"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-purple-700/60 via-indigo-600/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className="text-white font-medium text-lg">Product {index + 1}</h3>
-                    <p className="text-white/80 text-sm">Explore our products</p>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* CTA Section - Blur Gradient Background */}
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-light text-gray-800 mb-6">
-            Ready to Start Trading?
+      {/* CTA Section - Enhanced */}
+      <section className="py-20 bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-700 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-repeat" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='3'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+          }}></div>
+        </div>
+        
+        <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+          <h2 className="text-3xl md:text-4xl font-light text-white mb-6">
+            Ready to Explore Our Products?
           </h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Get in touch with us to discuss your import and export needs. We&apos;re here to help you succeed in the global market.
+          <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
+            Discover premium household essentials carefully selected for quality and value. Start your journey to a better lifestyle today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-700 text-white px-8 py-4 rounded-full text-lg font-medium hover:from-purple-700 hover:via-indigo-700 hover:to-purple-800 transition-all duration-300 transform hover:scale-105"
+              className="bg-white text-purple-600 px-8 py-4 rounded-full text-lg font-medium hover:bg-gray-50 transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               Contact Us
             </Link>
             <Link
               href="/products"
-              className="border-2 border-purple-600 text-purple-600 px-8 py-4 rounded-full text-lg font-medium hover:bg-gradient-to-r hover:from-purple-600 hover:to-indigo-600 hover:text-white transition-all duration-300"
+              className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-white hover:text-purple-600 transition-all duration-300"
             >
               View Products
             </Link>
