@@ -194,41 +194,41 @@ const categoriesData: Category[] = [
 
 // Static company information
 const companyInfo: CompanyInfo = {
-  name: '环球贸易进出口有限公司',
-  nameEn: 'BRAVE DAZZLE INC',
-  description: '专业的日常用品和家居百货零售公司，致力于为消费者提供优质、实用的生活必需品',
-  descriptionEn: 'Professional retail company specializing in daily essentials and household goods, committed to providing consumers with high-quality, practical necessities for everyday life',
-  address: '深圳市南山区科技园南区科苑路123号',
-  addressEn: '123 Keyuan Road, Nanshan District, Shenzhen, China',
-  phone: '+86 755-8888-8888',
-  email: 'info@globaltrade.com',
-  website: 'https://globaltrade.com',
-  logo: '/images/logo.svg',
-  about: '我们是一家专注于日常用品和家居百货的零售贸易公司，致力于为消费者提供优质、实用的生活必需品。我们精心挑选全球优质产品，涵盖个人护理、家居整理、厨房用品等多个品类，让每个家庭都能享受到高品质的日常生活用品。',
-  aboutEn: 'We are a retail trading company specializing in daily essentials and household goods, committed to providing consumers with high-quality, practical necessities for everyday life. We carefully curate premium products from around the world, covering personal care, home organization, kitchen supplies, and more, ensuring every household can enjoy high-quality daily essentials.',
+  name: 'Brave Dazzle Inc.',
+  nameEn: 'Brave Dazzle Inc.',
+  description: 'Brave Dazzle Inc. 是一家总部位于美国加利福尼亚州的供应链管理公司。拥有位于中国浙江的温州魅家电子科技有限公司，是亚马逊领先电动牙刷品牌7AM2M的母公司。',
+  descriptionEn: 'Brave Dazzle Inc. is a supply chain management company headquartered in California, USA. It owns Wenzhou Charmhome Electronic Technology Co., Ltd., based in Zhejiang, China, and is the parent company of 7AM2M, a leading electric toothbrush brand on Amazon.',
+  address: '9080 Telstar Ave, STE 305, El Monte, CA 91731',
+  addressEn: '9080 Telstar Ave, STE 305, El Monte, CA 91731',
+  phone: '(626)887-0707',
+  email: 'samuel@bravedazzle.com',
+  website: 'https://bravedazzle.com',
+  logo: '/images/1fb50eb1a9e4336065a6e93af66d8d3c.png',
+  about: '作为现代科技企业，Brave Dazzle整合了研发、生产、销售和客户服务。公司拥有强大的专业研发团队、先进的制造能力，并持有数十项国内外专利。拥有150多名员工和30,000平方米的生产设施，年产数百万支电动牙刷，并将产品组合扩展到牙线、剃须刀和棉签等个人护理产品。',
+  aboutEn: 'As a modern technology enterprise, Brave Dazzle integrates research and development, production, sales, and customer service. The company features a strong professional R&D team, advanced manufacturing capabilities, and holds dozens of domestic and international patents. With over 150 employees and a 30,000-square-meter production facility, the company produces millions of electric toothbrushes annually and has expanded its portfolio to include personal care products such as dental floss, razors, and cotton swabs.',
   services: [
-    '产品采购与质量控制',
-    '跨境物流运输',
-    '海关清关服务',
-    '产品认证咨询',
-    '市场调研分析',
-    '供应链管理'
+    '研发与生产',
+    '供应链管理',
+    '品牌运营',
+    '全球销售网络',
+    '客户服务',
+    '质量控制'
   ],
   servicesEn: [
-    'Curated Product Selection',
-    'Quality Assurance Service',
-    'Fast Delivery Logistics',
-    'Custom Solutions',
-    'After-sales Support',
-    'One-stop Shopping Experience'
+    'Research & Development',
+    'Supply Chain Management',
+    'Brand Operations',
+    'Global Sales Network',
+    'Customer Service',
+    'Quality Control'
   ],
-  mission: '为每个家庭提供优质、实用的日常用品，让生活更加便捷和美好',
-  missionEn: 'To provide every household with high-quality, practical daily essentials, making life more convenient and beautiful',
-  vision: '成为消费者信赖的日常用品零售品牌',
-  visionEn: 'To become a trusted retail brand for daily essentials among consumers',
-  founded: '2010',
-  employees: '200+',
-  countries: '50+'
+  mission: '通过创新技术和优质产品，为全球消费者提供卓越的个人护理解决方案',
+  missionEn: 'To provide exceptional personal care solutions to global consumers through innovative technology and quality products',
+  vision: '成为全球领先的个人护理产品供应链管理公司',
+  visionEn: 'To become a leading global supply chain management company for personal care products',
+  founded: '2015',
+  employees: '150+',
+  countries: '6'
 };
 
 // Client-side data service functions

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 import { getCompanyInfo } from '@/lib/client-data';
 
 export default function Navbar() {
@@ -13,29 +14,39 @@ export default function Navbar() {
   const companyInfo = getCompanyInfo();
 
   useEffect(() => {
-    const handleScroll = () => {
-      // 只有当滚动超过整个视窗高度时才认为已滚动（离开了hero区域）
-      setIsScrolled(window.scrollY > window.innerHeight - 100);
+    const updateScrolled = () => {
+      // 当滚动超过视窗高度 70% 时认为离开了 hero（更早变为白底，避免空白期）
+      const threshold = Math.max(window.innerHeight * 0.7, 300);
+      setIsScrolled(window.scrollY > threshold);
     };
 
-    // 初始状态确保是透明的
-    setIsScrolled(false);
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    // 立即计算一次，避免首帧状态不正确
+    updateScrolled();
+
+    window.addEventListener('scroll', updateScrolled);
+    return () => window.removeEventListener('scroll', updateScrolled);
   }, []);
 
   return (
     <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${
       isHomePage && !isScrolled
         ? 'bg-transparent' 
-        : 'bg-white/95 backdrop-blur-md shadow-lg border-b border-white/20'
+        : 'bg-white/95 backdrop-blur-md'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex items-center">
-            <Link href="/" className="flex items-center space-x-2">
+            <Link href="/" className="flex items-center space-x-3">
+              <div className="relative">
+                <Image
+                  src={companyInfo.logo}
+                  alt={companyInfo.nameEn}
+                  width={40}
+                  height={40}
+                  className="object-contain"
+                />
+              </div>
               <span className={`text-xl font-light transition-colors duration-300 ${
                 isHomePage && !isScrolled ? 'text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]' : 'text-gray-900'
               }`} style={isHomePage && !isScrolled ? { textShadow: '0 2px 8px rgba(0,0,0,0.8), 0 1px 4px rgba(0,0,0,0.4)' } : {}}>
