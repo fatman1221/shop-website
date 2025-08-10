@@ -7,7 +7,7 @@ import Footer from '@/components/Footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: '环球贸易进出口有限公司',
+  title: 'Brave Dazzle Inc.',
   description: '专业的百货类产品跨境进出口贸易公司，致力于为客户提供优质的产品和服务',
 }
 
