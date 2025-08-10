@@ -1,275 +1,63 @@
 'use client';
 
-import { useState } from 'react';
 import { getCompanyInfo } from '@/lib/client-data';
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    phone: '',
-    subject: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  
   const companyInfo = getCompanyInfo();
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        phone: '',
-        subject: '',
-        message: ''
-      });
-      
-      // Reset success message after 5 seconds
-      setTimeout(() => setSubmitStatus('idle'), 5000);
-    }, 2000);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      {/* Header */}
-      <div className="text-center mb-16">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">Contact Us</h1>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          Get in touch with our team to discuss your global trade needs and discover how we can help your business grow
-        </p>
-      </div>
+    <div className="bg-white">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        {/* 标题 */}
+        <section className="text-center mb-12">
+          <h1 className="text-5xl md:text-6xl font-light text-gray-900 tracking-tight mb-4">Contact Us</h1>
+          <p className="text-lg text-gray-600">We respond within 24 hours on business days</p>
+          <div className="w-28 h-0.5 mx-auto bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] rounded-full mt-4" />
+        </section>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        {/* Contact Form */}
-        <div className="bg-white rounded-lg shadow-md p-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h2>
-          
-          {submitStatus === 'success' && (
-            <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
-              Thank you for your message! We&apos;ll get back to you within 24 hours.
+        {/* 联系方式卡片（品牌色 + 轻动画） */}
+        <section className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
+          <a
+            href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(companyInfo.addressEn)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="panel-brand border border-gray-200 rounded-xl p-6 text-center transition-transform duration-300 hover:shadow-md hover:-translate-y-1 animate-slide-up block"
+            style={{animationDelay: '0ms'}}
+          >
+            <div className="mx-auto mb-3 w-10 h-10 rounded-full bg-[color-mix(in_oklab,var(--brand-start)_20%,transparent)] text-brand flex items-center justify-center">
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path strokeLinecap="round" strokeLinejoin="round" d="M12 11c1.657 0 3-1.343 3-3S13.657 5 12 5 9 6.343 9 8s1.343 3 3 3Zm0 0c2.761 0 5 2.239 5 5v2H7v-2c0-2.761 2.239-5 5-5Z"/></svg>
             </div>
-          )}
-
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                  Full Name *
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                />
-              </div>
+            <div className="text-sm uppercase tracking-wider text-gray-500 mb-1">Address</div>
+            <div className="text-gray-900">{companyInfo.addressEn}</div>
+          </a>
+          <a href={`tel:${companyInfo.phone.replace(/[^\d+]/g,'')}`} className="panel-brand border border-gray-200 rounded-xl p-6 text-center transition-transform duration-300 hover:shadow-md hover:-translate-y-1 animate-slide-up block" style={{animationDelay: '80ms'}}>
+            <div className="mx-auto mb-3 w-10 h-10 rounded-full bg-[color-mix(in_oklab,var(--brand-start)_20%,transparent)] text-brand flex items-center justify-center">
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path strokeLinecap="round" strokeLinejoin="round" d="M2 5l3.5-.7a2 2 0 0 1 2.1 1l1.4 2.7a2 2 0 0 1-.5 2.4l-1.2 1a12 12 0 0 0 5.8 5.8l1-1.2a2 2 0 0 1 2.4-.5l2.7 1.4a2 2 0 0 1 1 2.1L19 22a3 3 0 0 1-3 2.5C7.82 24.5 1.5 18.18 1.5 10A3 3 0 0 1 2 5Z"/></svg>
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
-                  Company Name
-                </label>
-                <input
-                  type="text"
-                  id="company"
-                  name="company"
-                  value={formData.company}
-                  onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                  Phone Number
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                />
-              </div>
+            <div className="text-sm uppercase tracking-wider text-gray-500 mb-1">Phone</div>
+            <div className="text-gray-900">{companyInfo.phone}</div>
+          </a>
+          <a href={`mailto:${companyInfo.email}`} className="panel-brand border border-gray-200 rounded-xl p-6 text-center transition-transform duration-300 hover:shadow-md hover:-translate-y-1 animate-slide-up block" style={{animationDelay: '160ms'}}>
+            <div className="mx-auto mb-3 w-10 h-10 rounded-full bg-[color-mix(in_oklab,var(--brand-start)_20%,transparent)] text-brand flex items-center justify-center">
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16c.55 0 1 .45 1 1v10c0 .55-.45 1-1 1H4a1 1 0 0 1-1-1V7c0-.55.45-1 1-1Zm0 0l8 6 8-6"/></svg>
             </div>
+            <div className="text-sm uppercase tracking-wider text-gray-500 mb-1">Email</div>
+            <div className="text-gray-900">{companyInfo.email}</div>
+          </a>
+        </section>
 
-            <div>
-              <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
-                Subject *
-              </label>
-              <select
-                id="subject"
-                name="subject"
-                required
-                value={formData.subject}
-                onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              >
-                <option value="">Select a subject</option>
-                <option value="product-inquiry">Product Inquiry</option>
-                <option value="business-partnership">Business Partnership</option>
-                <option value="logistics-support">Logistics Support</option>
-                <option value="customs-clearance">Customs Clearance</option>
-                <option value="quality-control">Quality Control</option>
-                <option value="general-inquiry">General Inquiry</option>
-              </select>
+        {/* 极简表单（品牌色） */}
+        <section>
+          <form className="space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <input className="w-full px-4 py-3 rounded-lg input-brand" placeholder="Full Name *" required />
+              <input type="email" className="w-full px-4 py-3 rounded-lg input-brand" placeholder="Email *" required />
             </div>
-
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                Message *
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                required
-                rows={6}
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Please describe your inquiry in detail..."
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              />
-            </div>
-
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {isSubmitting ? 'Sending...' : 'Send Message'}
-            </button>
+            <input className="w-full px-4 py-3 rounded-lg input-brand" placeholder="Company" />
+            <textarea rows={6} className="w-full px-4 py-3 rounded-lg input-brand" placeholder="Message *" required />
+            <button type="submit" className="w-full btn-brand-grad">Send</button>
           </form>
-        </div>
-
-        {/* Contact Information */}
-        <div className="space-y-8">
-          {/* Company Info */}
-          <div className="bg-gray-50 rounded-lg p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Get in Touch</h2>
-            
-            <div className="space-y-6">
-              <div className="flex items-start">
-                <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
-                  <span className="text-blue-600">📍</span>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Address</h3>
-                  <p className="text-gray-600">{companyInfo.addressEn}</p>
-                </div>
-              </div>
-
-              <div className="flex items-start">
-                <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-4">
-                  <span className="text-green-600">📞</span>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
-                  <p className="text-gray-600">{companyInfo.phone}</p>
-                </div>
-              </div>
-
-              <div className="flex items-start">
-                <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
-                  <span className="text-purple-600">✉️</span>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
-                  <p className="text-gray-600">{companyInfo.email}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Business Hours */}
-          <div className="bg-white rounded-lg shadow-md p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Business Hours</h2>
-            
-            <div className="space-y-3">
-              <div className="flex justify-between">
-                <span className="text-gray-600">Monday - Friday</span>
-                <span className="font-semibold">9:00 AM - 6:00 PM</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-gray-600">Saturday</span>
-                <span className="font-semibold">9:00 AM - 2:00 PM</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-gray-600">Sunday</span>
-                <span className="font-semibold">Closed</span>
-              </div>
-            </div>
-            
-            <div className="mt-6 p-4 bg-blue-50 rounded-lg">
-              <p className="text-sm text-blue-800">
-                <strong>Note:</strong> We operate in multiple time zones. For urgent inquiries, 
-                please call our 24/7 hotline or send us an email.
-              </p>
-            </div>
-          </div>
-
-          {/* Services */}
-          <div className="bg-white rounded-lg shadow-md p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Our Services</h2>
-            
-            <div className="space-y-3">
-              {companyInfo.servicesEn.map((service, index) => (
-                <div key={index} className="flex items-center">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
-                  <span className="text-gray-600">{service}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Map Placeholder */}
-      <div className="mt-16">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Our Location</h2>
-        <div className="bg-gray-200 rounded-lg h-64 flex items-center justify-center">
-          <div className="text-center">
-            <div className="text-4xl mb-4">🗺️</div>
-            <p className="text-gray-600">Interactive map will be displayed here</p>
-            <p className="text-sm text-gray-500 mt-2">{companyInfo.addressEn}</p>
-          </div>
-        </div>
+        </section>
       </div>
     </div>
   );
