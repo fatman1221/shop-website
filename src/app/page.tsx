@@ -86,9 +86,6 @@ export default function HomePage() {
               <Link href="/products" className="btn-brand-grad shadow-lg text-base md:text-lg">
                 Explore Products
               </Link>
-              <Link href="/contact" className="btn-brand-outline">
-                Contact Us
-              </Link>
             </div>
           </div>
         </div>
@@ -146,7 +143,6 @@ export default function HomePage() {
               {/* CTA Button */}
               <div className="flex space-x-4 justify-center lg:justify-start">
                 <Link href="/products" className="btn-brand-grad text-sm">View Product</Link>
-                <Link href="/contact" className="btn-brand-outline text-sm">Inquire Now</Link>
               </div>
             </div>
           </div>
@@ -280,7 +276,6 @@ export default function HomePage() {
 
               <div className="flex space-x-4 justify-center lg:justify-start">
                 <Link href="/products" className="btn-brand-grad text-lg">View Product</Link>
-                <Link href="/contact" className="btn-brand-outline text-lg">Inquire Now</Link>
               </div>
             </div>
 
