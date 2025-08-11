@@ -49,17 +49,38 @@ export async function POST(req: Request) {
     const ip = headers['x-forwarded-for']?.split(',')[0]?.trim() || headers['x-real-ip'] || '';
     const ua = headers['user-agent'] || '';
 
-    const appendRes = await sheets.spreadsheets.values.append({
-      spreadsheetId: sheetsId,
-      range: 'Sheet1!A:F',
-      valueInputOption: 'RAW',
-      requestBody: {
-        values: [[now, body.name, body.email, body.company || '', body.message, ip, ua]],
-      },
-    });
+    const appendPromise = sheets.spreadsheets.values
+      .append({
+        spreadsheetId: sheetsId,
+        range: 'Sheet1!A:F',
+        valueInputOption: 'RAW',
+        requestBody: {
+          values: [[now, body.name, body.email, body.company || '', body.message, ip, ua]],
+        },
+      })
+      .then((res) => {
+        console.log('[contact][POST] appended', res.data.updates?.updatedRange);
+        return res;
+      })
+      .catch((err) => {
+        console.error('[contact][POST] append error (background)', err?.message || err);
+        throw err;
+      });
 
-    console.log('[contact][POST] appended', appendRes.data.updates?.updatedRange);
-    return new Response(JSON.stringify({ ok: true, updatedRange: appendRes.data.updates?.updatedRange }), { status: 200 });
+    // 最多等待 8s，否则先返回 202，后端继续写入
+    const raced = await Promise.race([
+      appendPromise.then((res) => ({ done: true as const, res })),
+      new Promise<{ done: false }>((r) => setTimeout(() => r({ done: false }), 8000)),
+    ]);
+
+    if (!('done' in raced) || raced.done === false) {
+      return new Response(JSON.stringify({ ok: true, queued: true }), { status: 202 });
+    }
+
+    return new Response(
+      JSON.stringify({ ok: true, updatedRange: raced.res.data.updates?.updatedRange }),
+      { status: 200 }
+    );
   } catch (err: any) {
     console.error('[contact][POST] error', err?.message || err, err?.response?.data);
     return new Response(JSON.stringify({ ok: false, error: 'Internal Error' }), { status: 500 });

@@ -64,7 +64,14 @@ export default function ContactPage() {
               setSubmitting(true);
               const ctrl = new AbortController();
               const timeout = setTimeout(() => ctrl.abort(), 120000); // 120s 超时，避免 Google 网络慢导致前端过早中断
-              const res = await fetch('/api/contact', {
+              const url = '/api/contact';
+              console.log('[contact][CLIENT] start', {
+                url,
+                online: typeof navigator !== 'undefined' ? navigator.onLine : undefined,
+                payload,
+                time: new Date().toISOString(),
+              });
+              const res = await fetch(url, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload),
@@ -73,14 +80,17 @@ export default function ContactPage() {
               });
               clearTimeout(timeout);
               if (res.ok) {
+                const data = await res.json().catch(() => ({}));
+                console.log('[contact][CLIENT] success', { status: res.status, data });
                 alert('Submitted successfully');
                 form.reset();
               } else {
                 const data = await res.json().catch(() => ({}));
+                console.warn('[contact][CLIENT] failed', { status: res.status, data });
                 alert(data?.error || 'Submit failed');
               }
             } catch (err: any) {
-              console.error('contact submit error', err);
+              console.error('[contact][CLIENT] error', { name: err?.name, message: err?.message, err });
               if (err?.name === 'AbortError') {
                 alert('已发送请求，服务器可能仍在写入，请稍后在表格中查看是否已新增。如未写入，请再试一次。');
               } else {
