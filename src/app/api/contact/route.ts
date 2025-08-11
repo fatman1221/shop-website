@@ -81,8 +81,9 @@ export async function POST(req: Request) {
       JSON.stringify({ ok: true, updatedRange: raced.res.data.updates?.updatedRange }),
       { status: 200 }
     );
-  } catch (err: any) {
-    console.error('[contact][POST] error', err?.message || err, err?.response?.data);
+  } catch (err) {
+    const e = err as { message?: string; response?: { data?: unknown } };
+    console.error('[contact][POST] error', e?.message || e, e?.response?.data);
     return new Response(JSON.stringify({ ok: false, error: 'Internal Error' }), { status: 500 });
   }
 }
@@ -108,9 +109,10 @@ export async function GET() {
     const sheets = google.sheets({ version: 'v4', auth: jwt });
     const meta = await sheets.spreadsheets.get({ spreadsheetId: sheetsId! });
     return new Response(JSON.stringify({ ok: true, stage: 'auth', title: meta.data.properties?.title }), { status: 200 });
-  } catch (err: any) {
-    console.error('[contact][GET] error', err?.message || err, err?.response?.data);
-    return new Response(JSON.stringify({ ok: false, stage: 'api', error: err?.message || 'error' }), { status: 200 });
+  } catch (err) {
+    const e = err as { message?: string; response?: { data?: unknown } };
+    console.error('[contact][GET] error', e?.message || e, e?.response?.data);
+    return new Response(JSON.stringify({ ok: false, stage: 'api', error: e?.message || 'error' }), { status: 200 });
   }
 }
 

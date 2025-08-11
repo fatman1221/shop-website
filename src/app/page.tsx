@@ -2,10 +2,10 @@
 
 import Link from 'next/link';
 import WebPImage from '@/components/WebPImage';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 export default function HomePage() {
-  const [_revealReady, setRevealReady] = useState(false);
+  // reveal-on-scroll observer
   
   // Hero carousel images
   const heroImages = [
@@ -42,7 +42,6 @@ export default function HomePage() {
 
     const toReveal = document.querySelectorAll('.reveal');
     toReveal.forEach((el) => observer.observe(el));
-    setRevealReady(true);
 
     return () => observer.disconnect();
   }, []);

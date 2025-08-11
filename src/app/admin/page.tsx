@@ -152,6 +152,7 @@ export default function AdminPage() {
   };
 
   const handleDelete = (_productId: string) => {
+    void _productId; // mark as used to satisfy lint rule
     if (confirm('Are you sure you want to delete this product?')) {
       alert('Product deleted successfully! (Backend integration required for persistence)');
     }

@@ -5,6 +5,18 @@ import { useEffect, useRef, useState } from 'react';
 
 type GoogleTokenResponse = { access_token?: string };
 type GoogleTokenClient = { requestAccessToken: () => void } | null;
+type GoogleGlobal = {
+  accounts?: {
+    oauth2?: {
+      initTokenClient?: (options: {
+        client_id: string;
+        scope: string;
+        prompt?: string;
+        callback: (resp: GoogleTokenResponse) => void;
+      }) => GoogleTokenClient;
+    };
+  };
+};
 
 export default function ContactPage() {
   const companyInfo = getCompanyInfo();
@@ -28,9 +40,10 @@ export default function ContactPage() {
     s.defer = true;
     s.onload = () => {
       try {
-        // 注意：此处 window 类型断言为 unknown → any 仅限局部
-        const g: any = (window as unknown as any).google;
-        tokenClientRef.current = g?.accounts?.oauth2?.initTokenClient?.({
+        // 使用窄化的全局类型，避免 any
+        const g = (window as unknown as { google?: GoogleGlobal }).google;
+        tokenClientRef.current = (g?.accounts?.oauth2?.initTokenClient
+          ? g.accounts.oauth2.initTokenClient({
           client_id: GOOGLE_CLIENT_ID,
           scope: 'https://www.googleapis.com/auth/spreadsheets',
           prompt: '',
@@ -42,7 +55,8 @@ export default function ContactPage() {
               console.warn('[contact][OAUTH] no token', resp);
             }
           },
-        });
+          })
+          : null);
       } catch (e) {
         console.error('[contact][OAUTH] init error', e);
       }
@@ -50,10 +64,8 @@ export default function ContactPage() {
     document.body.appendChild(s);
   }, [GOOGLE_CLIENT_ID]);
 
-  const requestGoogleToken = () => {
-    if (!tokenClientRef.current) return;
-    tokenClientRef.current.requestAccessToken();
-  };
+  // 如果需要手动触发获取 token，可在 UI 中调用以下函数
+  // const requestGoogleToken = () => tokenClientRef.current?.requestAccessToken();
 
   return (
     <div className="bg-white">

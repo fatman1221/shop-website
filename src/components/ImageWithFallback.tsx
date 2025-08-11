@@ -50,7 +50,7 @@ export default function ImageWithFallback({
       width={800}
       height={600}
       className={className}
-      onError={handleError as any}
+      onError={() => handleError()}
     />
   );
 } 
