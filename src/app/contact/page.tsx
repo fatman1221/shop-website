@@ -64,7 +64,7 @@ export default function ContactPage() {
               setSubmitting(true);
               const ctrl = new AbortController();
               const timeout = setTimeout(() => ctrl.abort(), 120000); // 120s 超时，避免 Google 网络慢导致前端过早中断
-              const url = '/api/contact';
+              const url = process.env.NEXT_PUBLIC_CONTACT_ENDPOINT || '/api/contact';
               console.log('[contact][CLIENT] start', {
                 url,
                 online: typeof navigator !== 'undefined' ? navigator.onLine : undefined,
