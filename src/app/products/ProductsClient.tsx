@@ -118,7 +118,7 @@ export default function ProductsClient({ groups }: { groups: CategoryImages[] })
                   src={src}
                   alt={`${activeGroup.category} ${idx + 1}`}
                   fill
-                  className="object-cover w-full h-full transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                  className="object-contain w-full h-full transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw"
                   priority={idx < 2}
                 />

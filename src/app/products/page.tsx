@@ -58,6 +58,13 @@ function slugifyCategory(name: string) {
 export default async function ProductsPage() {
   const groups = readCategoryImageGroups();
   const visibleGroups = groups.filter((g) => g.images.length > 0);
+  // Debug logs in dev
+  if (process.env.NODE_ENV !== 'production') {
+    console.log('[products] cwd=', process.cwd());
+    console.log('[products] groups total=', groups.length);
+    console.log('[products] visibleGroups total=', visibleGroups.length);
+    visibleGroups.forEach((g) => console.log('[products] group', g.category, g.images.slice(0, 3)));
+  }
 
   return (
     <div className="bg-white">
