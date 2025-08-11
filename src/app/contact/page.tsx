@@ -1,9 +1,11 @@
 'use client';
 
 import { getCompanyInfo } from '@/lib/client-data';
+import { useState } from 'react';
 
 export default function ContactPage() {
   const companyInfo = getCompanyInfo();
+  const [submitting, setSubmitting] = useState(false);
 
   return (
     <div className="bg-white">
@@ -48,14 +50,51 @@ export default function ContactPage() {
 
         {/* 极简表单（品牌色） */}
         <section>
-          <form className="space-y-4">
+          <form className="space-y-4" onSubmit={async (e) => {
+            e.preventDefault();
+            const form = e.currentTarget as HTMLFormElement;
+            const formData = new FormData(form);
+            const payload = {
+              name: String(formData.get('name') || ''),
+              email: String(formData.get('email') || ''),
+              company: String(formData.get('company') || ''),
+              message: String(formData.get('message') || ''),
+            };
+            try {
+              setSubmitting(true);
+              const ctrl = new AbortController();
+              const timeout = setTimeout(() => ctrl.abort(), 45000);
+              const res = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+                cache: 'no-store',
+                signal: ctrl.signal,
+              });
+              clearTimeout(timeout);
+              if (res.ok) {
+                alert('Submitted successfully');
+                form.reset();
+              } else {
+                const data = await res.json().catch(() => ({}));
+                alert(data?.error || 'Submit failed');
+              }
+            } catch (err: any) {
+              console.error('contact submit error', err);
+              alert('Network error, please try again.');
+            } finally {
+              setSubmitting(false);
+            }
+          }}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <input className="w-full px-4 py-3 rounded-lg input-brand" placeholder="Full Name *" required />
-              <input type="email" className="w-full px-4 py-3 rounded-lg input-brand" placeholder="Email *" required />
+              <input name="name" className="w-full px-4 py-3 rounded-lg input-brand" placeholder="Full Name *" required />
+              <input name="email" type="email" className="w-full px-4 py-3 rounded-lg input-brand" placeholder="Email *" required />
             </div>
-            <input className="w-full px-4 py-3 rounded-lg input-brand" placeholder="Company" />
-            <textarea rows={6} className="w-full px-4 py-3 rounded-lg input-brand" placeholder="Message *" required />
-            <button type="submit" className="w-full btn-brand-grad">Send</button>
+            <input name="company" className="w-full px-4 py-3 rounded-lg input-brand" placeholder="Company" />
+            <textarea name="message" rows={6} className="w-full px-4 py-3 rounded-lg input-brand" placeholder="Message *" required />
+            <button type="submit" className="w-full btn-brand-grad disabled:opacity-60" disabled={submitting}>
+              {submitting ? 'Sending…' : 'Send'}
+            </button>
           </form>
         </section>
       </div>
