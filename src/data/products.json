@@ -7,7 +7,7 @@
       "price": 89.99,
       "currency": "USD",
       "category": "电子产品",
-      "image": "/images/speaker.jpg",
+      "image": "/images/speaker.webp",
       "amazonUrl": "https://www.amazon.com/dp/B08XXXXXXX",
       "features": [
         "蓝牙5.0连接",
@@ -34,7 +34,7 @@
       "price": 129.99,
       "currency": "USD",
       "category": "厨房用品",
-      "image": "/images/knife-set.jpg",
+      "image": "/images/knife-set.webp",
       "amazonUrl": "https://www.amazon.com/dp/B09XXXXXXX",
       "features": [
         "德国不锈钢材质",
@@ -61,7 +61,7 @@
       "price": 199.99,
       "currency": "USD",
       "category": "厨房用品",
-      "image": "/images/coffee-machine.jpg",
+      "image": "/images/coffee-machine.webp",
       "amazonUrl": "https://www.amazon.com/dp/B10XXXXXXX",
       "features": [
         "便携设计",
@@ -88,7 +88,7 @@
       "price": 49.99,
       "currency": "USD",
       "category": "电子产品",
-      "image": "/images/wireless-charger.jpg",
+      "image": "/images/wireless-charger.webp",
       "amazonUrl": "https://www.amazon.com/dp/B11XXXXXXX",
       "features": [
         "15W快速充电",
@@ -115,7 +115,7 @@
       "price": 79.99,
       "currency": "USD",
       "category": "健康用品",
-      "image": "/images/scale.jpg",
+      "image": "/images/scale.webp",
       "amazonUrl": "https://www.amazon.com/dp/B12XXXXXXX",
       "features": [
         "高精度传感器",
