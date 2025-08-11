@@ -1,11 +1,60 @@
 'use client';
 
 import { getCompanyInfo } from '@/lib/client-data';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+
+declare global {
+  interface Window {
+    google?: any;
+  }
+}
 
 export default function ContactPage() {
   const companyInfo = getCompanyInfo();
   const [submitting, setSubmitting] = useState(false);
+  const [accessToken, setAccessToken] = useState<string | null>(null);
+  const tokenClientRef = useRef<any>(null);
+
+  const GOOGLE_CLIENT_ID = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
+  const PUBLIC_SHEETS_ID = process.env.NEXT_PUBLIC_SHEETS_ID;
+
+  // 动态加载 Google Identity Services（OAuth 2.0 for Web）
+  useEffect(() => {
+    if (!GOOGLE_CLIENT_ID) return;
+    if (typeof window === 'undefined') return;
+    const id = 'google-identity-services';
+    if (document.getElementById(id)) return;
+    const s = document.createElement('script');
+    s.id = id;
+    s.src = 'https://accounts.google.com/gsi/client';
+    s.async = true;
+    s.defer = true;
+    s.onload = () => {
+      try {
+        tokenClientRef.current = window.google?.accounts?.oauth2?.initTokenClient?.({
+          client_id: GOOGLE_CLIENT_ID,
+          scope: 'https://www.googleapis.com/auth/spreadsheets',
+          prompt: '',
+          callback: (resp: any) => {
+            if (resp?.access_token) {
+              setAccessToken(resp.access_token);
+              console.log('[contact][OAUTH] token acquired');
+            } else {
+              console.warn('[contact][OAUTH] no token', resp);
+            }
+          },
+        });
+      } catch (e) {
+        console.error('[contact][OAUTH] init error', e);
+      }
+    };
+    document.body.appendChild(s);
+  }, [GOOGLE_CLIENT_ID]);
+
+  const requestGoogleToken = () => {
+    if (!tokenClientRef.current) return;
+    tokenClientRef.current.requestAccessToken();
+  };
 
   return (
     <div className="bg-white">
@@ -71,13 +120,32 @@ export default function ContactPage() {
                 payload,
                 time: new Date().toISOString(),
               });
-              const res = await fetch(url, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload),
-                cache: 'no-store',
-                signal: ctrl.signal,
-              });
+              let res: Response;
+              if (accessToken && PUBLIC_SHEETS_ID) {
+                // 直接调用 Google Sheets API（前端 OAuth 流程），写入 Sheet1!A:F
+                const endpoint = `https://sheets.googleapis.com/v4/spreadsheets/${PUBLIC_SHEETS_ID}/values/Sheet1!A:F:append?valueInputOption=RAW`;
+                const now = new Date().toISOString();
+                const values = [[now, payload.name, payload.email, payload.company || '', payload.message, '', navigator.userAgent || '']];
+                console.log('[contact][CLIENT] call Google API', endpoint);
+                res = await fetch(endpoint, {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${accessToken}`,
+                  },
+                  body: JSON.stringify({ values }),
+                  signal: ctrl.signal,
+                });
+              } else {
+                // 走后端中转（服务账号）
+                res = await fetch(url, {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify(payload),
+                  cache: 'no-store',
+                  signal: ctrl.signal,
+                });
+              }
               clearTimeout(timeout);
               if (res.ok) {
                 const data = await res.json().catch(() => ({}));
