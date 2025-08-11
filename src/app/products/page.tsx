@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import WebPImage from '@/components/WebPImage';
+// import WebPImage from '@/components/WebPImage';
 import ProductsClient from './ProductsClient';
 
 type CategoryImages = {
@@ -48,12 +48,12 @@ function readCategoryImageGroups(): CategoryImages[] {
   return groups.sort((a, b) => a.category.localeCompare(b.category));
 }
 
-function slugifyCategory(name: string) {
-  return name
-    .toLowerCase()
-    .replace(/[^a-z0-9\s-]/g, '')
-    .replace(/\s+/g, '-');
-}
+// function slugifyCategory(name: string) {
+//   return name
+//     .toLowerCase()
+//     .replace(/[^a-z0-9\s-]/g, '')
+//     .replace(/\s+/g, '-');
+// }
 
 export default async function ProductsPage() {
   const groups = readCategoryImageGroups();

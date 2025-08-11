@@ -2,10 +2,10 @@
 
 import Link from 'next/link';
 import WebPImage from '@/components/WebPImage';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function HomePage() {
-  const [revealReady, setRevealReady] = useState(false);
+  const [_revealReady, setRevealReady] = useState(false);
   
   // Hero carousel images
   const heroImages = [

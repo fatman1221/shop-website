@@ -25,8 +25,7 @@ export default function ProductDetailClient({ product, recommendedProducts }: Pr
   // Remove simulated amazonLink
   // const amazonLink = `https://www.amazon.com/s?k=${encodeURIComponent(product.nameEn)}`;
 
-  // Use product.amazonUrl in the button
-  const amazonLink = product.amazonUrl;
+  // Use product.amazonUrl in the button (kept for clarity, but we directly use product.amazonUrl below)
 
   return (
     <div className="bg-white min-h-screen">

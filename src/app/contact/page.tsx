@@ -3,17 +3,14 @@
 import { getCompanyInfo } from '@/lib/client-data';
 import { useEffect, useRef, useState } from 'react';
 
-declare global {
-  interface Window {
-    google?: any;
-  }
-}
+type GoogleTokenResponse = { access_token?: string };
+type GoogleTokenClient = { requestAccessToken: () => void } | null;
 
 export default function ContactPage() {
   const companyInfo = getCompanyInfo();
   const [submitting, setSubmitting] = useState(false);
   const [accessToken, setAccessToken] = useState<string | null>(null);
-  const tokenClientRef = useRef<any>(null);
+  const tokenClientRef = useRef<GoogleTokenClient>(null);
 
   const GOOGLE_CLIENT_ID = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
   const PUBLIC_SHEETS_ID = process.env.NEXT_PUBLIC_SHEETS_ID;
@@ -31,11 +28,13 @@ export default function ContactPage() {
     s.defer = true;
     s.onload = () => {
       try {
-        tokenClientRef.current = window.google?.accounts?.oauth2?.initTokenClient?.({
+        // 注意：此处 window 类型断言为 unknown → any 仅限局部
+        const g: any = (window as unknown as any).google;
+        tokenClientRef.current = g?.accounts?.oauth2?.initTokenClient?.({
           client_id: GOOGLE_CLIENT_ID,
           scope: 'https://www.googleapis.com/auth/spreadsheets',
           prompt: '',
-          callback: (resp: any) => {
+          callback: (resp: GoogleTokenResponse) => {
             if (resp?.access_token) {
               setAccessToken(resp.access_token);
               console.log('[contact][OAUTH] token acquired');
@@ -157,9 +156,10 @@ export default function ContactPage() {
                 console.warn('[contact][CLIENT] failed', { status: res.status, data });
                 alert(data?.error || 'Submit failed');
               }
-            } catch (err: any) {
-              console.error('[contact][CLIENT] error', { name: err?.name, message: err?.message, err });
-              if (err?.name === 'AbortError') {
+            } catch (err) {
+              const e = err as { name?: string; message?: string };
+              console.error('[contact][CLIENT] error', { name: e?.name, message: e?.message, err: e });
+              if (e?.name === 'AbortError') {
                 alert('已发送请求，服务器可能仍在写入，请稍后在表格中查看是否已新增。如未写入，请再试一次。');
               } else {
                 alert('Network error, please try again.');
