@@ -63,7 +63,7 @@ export default function ContactPage() {
             try {
               setSubmitting(true);
               const ctrl = new AbortController();
-              const timeout = setTimeout(() => ctrl.abort(), 45000);
+              const timeout = setTimeout(() => ctrl.abort(), 120000); // 120s 超时，避免 Google 网络慢导致前端过早中断
               const res = await fetch('/api/contact', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -81,7 +81,11 @@ export default function ContactPage() {
               }
             } catch (err: any) {
               console.error('contact submit error', err);
-              alert('Network error, please try again.');
+              if (err?.name === 'AbortError') {
+                alert('已发送请求，服务器可能仍在写入，请稍后在表格中查看是否已新增。如未写入，请再试一次。');
+              } else {
+                alert('Network error, please try again.');
+              }
             } finally {
               setSubmitting(false);
             }

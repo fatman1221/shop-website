@@ -27,6 +27,7 @@ export async function POST(req: Request) {
       email: clientEmail,
       key: privateKey,
       scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+      subject: clientEmail,
     });
 
     await jwt.authorize();
@@ -39,7 +40,7 @@ export async function POST(req: Request) {
 
     const appendRes = await sheets.spreadsheets.values.append({
       spreadsheetId: sheetsId,
-      range: 'Sheet1!A1',
+      range: 'Sheet1!A:F',
       valueInputOption: 'RAW',
       requestBody: {
         values: [[now, body.name, body.email, body.company || '', body.message, ip, ua]],
