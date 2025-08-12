@@ -77,29 +77,9 @@ export default function ContactPage() {
           <div className="w-28 h-0.5 mx-auto bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] rounded-full mt-4" />
         </section>
 
-        {/* 联系方式卡片（品牌色 + 轻动画） */}
-        <section className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
-          <a
-            href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(companyInfo.addressEn)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="panel-brand border border-gray-200 rounded-xl p-6 text-center transition-transform duration-300 hover:shadow-md hover:-translate-y-1 animate-slide-up block"
-            style={{animationDelay: '0ms'}}
-          >
-            <div className="mx-auto mb-3 w-10 h-10 rounded-full bg-[color-mix(in_oklab,var(--brand-start)_20%,transparent)] text-brand flex items-center justify-center">
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path strokeLinecap="round" strokeLinejoin="round" d="M12 11c1.657 0 3-1.343 3-3S13.657 5 12 5 9 6.343 9 8s1.343 3 3 3Zm0 0c2.761 0 5 2.239 5 5v2H7v-2c0-2.761 2.239-5 5-5Z"/></svg>
-            </div>
-            <div className="text-sm uppercase tracking-wider text-gray-500 mb-1">Address</div>
-            <div className="text-gray-900">{companyInfo.addressEn}</div>
-          </a>
-          <a href={`tel:${companyInfo.phone.replace(/[^\d+]/g,'')}`} className="panel-brand border border-gray-200 rounded-xl p-6 text-center transition-transform duration-300 hover:shadow-md hover:-translate-y-1 animate-slide-up block" style={{animationDelay: '80ms'}}>
-            <div className="mx-auto mb-3 w-10 h-10 rounded-full bg-[color-mix(in_oklab,var(--brand-start)_20%,transparent)] text-brand flex items-center justify-center">
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path strokeLinecap="round" strokeLinejoin="round" d="M2 5l3.5-.7a2 2 0 0 1 2.1 1l1.4 2.7a2 2 0 0 1-.5 2.4l-1.2 1a12 12 0 0 0 5.8 5.8l1-1.2a2 2 0 0 1 2.4-.5l2.7 1.4a2 2 0 0 1 1 2.1L19 22a3 3 0 0 1-3 2.5C7.82 24.5 1.5 18.18 1.5 10A3 3 0 0 1 2 5Z"/></svg>
-            </div>
-            <div className="text-sm uppercase tracking-wider text-gray-500 mb-1">Phone</div>
-            <div className="text-gray-900">{companyInfo.phone}</div>
-          </a>
-          <a href={`mailto:${companyInfo.email}`} className="panel-brand border border-gray-200 rounded-xl p-6 text-center transition-transform duration-300 hover:shadow-md hover:-translate-y-1 animate-slide-up block" style={{animationDelay: '160ms'}}>
+        {/* 联系方式卡片（仅保留 Email，居中展示） */}
+        <section className="grid grid-cols-1 gap-4 mb-12 max-w-md mx-auto">
+          <a href={`mailto:${companyInfo.email}`} className="panel-brand border border-gray-200 rounded-xl p-6 text-center transition-transform duration-300 hover:shadow-md hover:-translate-y-1 animate-slide-up block" style={{animationDelay: '0ms'}}>
             <div className="mx-auto mb-3 w-10 h-10 rounded-full bg-[color-mix(in_oklab,var(--brand-start)_20%,transparent)] text-brand flex items-center justify-center">
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16c.55 0 1 .45 1 1v10c0 .55-.45 1-1 1H4a1 1 0 0 1-1-1V7c0-.55.45-1 1-1Zm0 0l8 6 8-6"/></svg>
             </div>

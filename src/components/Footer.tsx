@@ -20,8 +20,6 @@ export default function Footer() {
               <span className="text-xl font-bold">{companyInfo.nameEn}</span>
             </div>
             <div className="space-y-2 text-sm text-gray-600">
-              <p>📍 {companyInfo.addressEn}</p>
-              <p>📞 {companyInfo.phone}</p>
               <p>✉️ {companyInfo.email}</p>
             </div>
           </div>
