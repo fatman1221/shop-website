@@ -201,7 +201,7 @@ const companyInfo: CompanyInfo = {
   address: '9080 Telstar Ave, STE 305, El Monte, CA 91731',
   addressEn: '9080 Telstar Ave, STE 305, El Monte, CA 91731',
   phone: '(626)887-0707',
-  email: 'samuel@bravedazzle.com',
+  email: 'info@bravedazzle.com',
   website: 'https://bravedazzle.com',
   logo: '/images/1fb50eb1a9e4336065a6e93af66d8d3c.png',
   about: '作为现代科技企业，Brave Dazzle整合了研发、生产、销售和客户服务。公司拥有强大的专业研发团队、先进的制造能力，并持有数十项国内外专利。拥有150多名员工和30,000平方米的生产设施，年产数百万支电动牙刷，并将产品组合扩展到牙线、剃须刀和棉签等个人护理产品。',
