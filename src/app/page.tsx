@@ -282,8 +282,8 @@ export default function HomePage() {
             <div className="relative order-1 lg:order-2 w-full max-w-lg">
               <div className="aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl">
                 <WebPImage
-                  src="/images/products/Dental Floss/1754460088_1436_1936651498.webp"
-                  alt="Dental Floss Product"
+                  src="/images/index/1754457678_1150_2307935951.webp"
+                  alt="Professional Safety Razor"
                   width={800}
                   height={600}
                   className="object-cover w-full h-full"
