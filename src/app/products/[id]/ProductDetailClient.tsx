@@ -12,7 +12,11 @@ interface ProductDetailClientProps {
 
 // 棉签产品特殊信息
 const getCottonSwabDetails = (productId: string) => {
-  const details: Record<string, any> = {
+  const details: Record<string, {
+    packageQuantity: string;
+    materialDesign: string;
+    wideApplications: string;
+  }> = {
     '5': { // SNDZ-CSW100
       packageQuantity: '100-count cotton swabs per pack, stored in a clear hygienic box to prevent dust and facilitate daily use.',
       materialDesign: 'Tips made of 100% natural organic cotton, soft absorbent, and lint-free. Wooden or paper stick (chlorine-free and cruelty-free), smooth and sturdy after high-temperature treatment. Rounded end for gentle applications, Pointed end for precision cleaning in hard-to-reach areas.',

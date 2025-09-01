@@ -4,9 +4,42 @@ import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import WebPImage from '@/components/WebPImage';
 
+
 type CategoryImages = {
   category: string;
   images: string[];
+};
+
+// 自定义产品信息，基于文件夹名称
+const getCustomProductInfo = (category: string, imageIndex: number) => {
+  const customInfo: Record<string, Array<{
+    name: string;
+    description: string;
+    sku: string;
+    price: string;
+  }>> = {
+    'Cotton Swabs': [
+      {
+        name: 'SNDZ-CSW100',
+        description: '100-count cotton swabs per pack, stored in a clear hygienic box to prevent dust and facilitate daily use.',
+        sku: 'CSW100',
+        price: '$12.99'
+      },
+      {
+        name: 'SNDZ-CSW30', 
+        description: '30 count cotton swabs per pack, stored in a clear hygienic box to prevent dust and facilitate daily use.',
+        sku: 'CSW30',
+        price: '$8.99'
+      }
+    ]
+  };
+  
+  return customInfo[category]?.[imageIndex] || {
+    name: `${category} #${imageIndex + 1}`,
+    description: 'High-quality curated product imagery',
+    sku: '',
+    price: ''
+  };
 };
 
 function classNames(...classes: Array<string | false | undefined>) {
@@ -125,12 +158,38 @@ export default function ProductsClient({ groups }: { groups: CategoryImages[] })
               </button>
               {/* Content under image */}
               <div className="p-4 sm:p-5">
-                <h3 className="text-sm font-medium text-gray-900 truncate">{activeGroup.category} #{idx + 1}</h3>
-                <p className="mt-1 text-xs text-gray-500">High-quality curated product imagery</p>
-                <div className="mt-4 flex items-center gap-2">
-                  <button className="btn-brand-outline btn-sm" onClick={() => setLightboxIndex(idx)}>Preview</button>
-                  <button className="btn-brand-grad btn-sm">Details</button>
-                </div>
+                {(() => {
+                  const productInfo = getCustomProductInfo(activeGroup.category, idx);
+                  return (
+                    <>
+                      <h3 className="text-sm font-medium text-gray-900 truncate">{productInfo.name}</h3>
+                      <p className="mt-1 text-xs text-gray-500">{productInfo.description}</p>
+                      {productInfo.sku && (
+                        <p className="mt-1 text-xs text-gray-400">SKU: {productInfo.sku}</p>
+                      )}
+                      {productInfo.price && (
+                        <p className="mt-1 text-sm font-semibold text-[var(--brand-start)]">{productInfo.price}</p>
+                      )}
+                      <div className="mt-4 flex items-center gap-2">
+                        <button className="btn-brand-outline btn-sm" onClick={() => setLightboxIndex(idx)}>Preview</button>
+                        {(() => {
+                          // 为 Cotton Swabs 产品提供正确的链接
+                          if (activeGroup.category === 'Cotton Swabs') {
+                            const productId = idx === 0 ? '5' : '6'; // 第一个图片是 SNDZ-CSW100 (ID: 5), 第二个是 SNDZ-CSW30 (ID: 6)
+                            return (
+                              <Link href={`/products/${productId}`} className="btn-brand-grad btn-sm">
+                                Details
+                              </Link>
+                            );
+                          }
+                          return (
+                            <button className="btn-brand-grad btn-sm">Details</button>
+                          );
+                        })()}
+                      </div>
+                    </>
+                  );
+                })()}
               </div>
             </div>
           ))}
