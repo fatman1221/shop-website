@@ -149,21 +149,6 @@ export default function ProductsClient({ groups }: { groups: CategoryImages[] })
                     priority={idx < 2}
                   />
                   
-                  {/* 点击图片进入详情页 */}
-                  {(() => {
-                    if (activeGroup.category === 'Cotton Swabs') {
-                      const productId = idx === 0 ? '5' : '6';
-                      return (
-                        <Link 
-                          href={`/products/${productId}`}
-                          className="absolute inset-0 z-10"
-                          aria-label={`Go to ${activeGroup.category} details`}
-                        />
-                      );
-                    }
-                    return null;
-                  })()}
-                  
                   {/* 预览按钮覆盖层 */}
                   <button
                     type="button"
@@ -178,6 +163,21 @@ export default function ProductsClient({ groups }: { groups: CategoryImages[] })
                       </svg>
                     </div>
                   </button>
+                  
+                  {/* 点击图片进入详情页 - 放在最上层 */}
+                  {(() => {
+                    if (activeGroup.category === 'Cotton Swabs') {
+                      const productId = idx === 0 ? '5' : '6';
+                      return (
+                        <Link 
+                          href={`/products/${productId}`}
+                          className="absolute inset-0 z-30"
+                          aria-label={`Go to ${activeGroup.category} details`}
+                        />
+                      );
+                    }
+                    return null;
+                  })()}
                 </div>
               </div>
               {/* Content under image */}
