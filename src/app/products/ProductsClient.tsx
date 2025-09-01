@@ -137,21 +137,49 @@ export default function ProductsClient({ groups }: { groups: CategoryImages[] })
               key={`${activeGroup.category}-${idx}`}
               className="group relative overflow-hidden rounded-2xl bg-white shadow-sm border border-gray-200 hover:shadow-md transition-all hover-border-brand"
             >
-              <button
-                type="button"
-                onClick={() => setLightboxIndex(idx)}
-                className="relative aspect-[4/3] w-full text-left"
-                aria-label="Open preview"
-              >
-                <WebPImage
-                  src={src}
-                  alt={`${activeGroup.category} ${idx + 1}`}
-                  fill
-                  className="object-contain w-full h-full transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw"
-                  priority={idx < 2}
-                />
-              </button>
+              <div className="relative aspect-[4/3] w-full text-left">
+                {/* 图片区域 - 支持点击进入详情页和预览 */}
+                <div className="relative w-full h-full">
+                  <WebPImage
+                    src={src}
+                    alt={`${activeGroup.category} ${idx + 1}`}
+                    fill
+                    className="object-contain w-full h-full transition-transform duration-500 ease-out group-hover:scale-[1.02] cursor-pointer"
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw"
+                    priority={idx < 2}
+                  />
+                  
+                  {/* 点击图片进入详情页 */}
+                  {(() => {
+                    if (activeGroup.category === 'Cotton Swabs') {
+                      const productId = idx === 0 ? '5' : '6';
+                      return (
+                        <Link 
+                          href={`/products/${productId}`}
+                          className="absolute inset-0 z-10"
+                          aria-label={`Go to ${activeGroup.category} details`}
+                        />
+                      );
+                    }
+                    return null;
+                  })()}
+                  
+                  {/* 预览按钮覆盖层 */}
+                  <button
+                    type="button"
+                    onClick={() => setLightboxIndex(idx)}
+                    className="absolute inset-0 z-20 opacity-0 hover:opacity-100 transition-opacity duration-200 bg-black/10 hover:bg-black/20 flex items-center justify-center"
+                    aria-label="Open preview"
+                  >
+                    <div className="bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg">
+                      <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                      </svg>
+                    </div>
+                  </button>
+                </div>
+              </div>
               {/* Content under image */}
               <div className="p-4 sm:p-5">
                 {(() => {
