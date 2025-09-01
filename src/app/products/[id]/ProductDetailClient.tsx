@@ -38,6 +38,9 @@ export default function ProductDetailClient({ product, recommendedProducts }: Pr
   // 获取棉签产品详细信息
   const cottonSwabDetails = getCottonSwabDetails(product.id);
 
+  // 调试信息
+  console.log('ProductDetailClient rendered:', { product, cottonSwabDetails, recommendedProducts });
+
   // 模拟多张产品图片
   const productImages = [
     product.image,
