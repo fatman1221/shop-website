@@ -149,6 +149,80 @@ const productsData: Product[] = [
     dimensions: '15cm x 7cm x 2cm',
     createdAt: '2024-01-15',
     updatedAt: '2024-01-15'
+  },
+  {
+    id: '5',
+    name: '高级棉签',
+    nameEn: 'Premium Cotton Swabs',
+    description: '高品质棉签，100%有机棉材质，双端设计，适合日常护理和专业清洁',
+    descriptionEn: 'Premium quality cotton swabs made with 100% organic cotton, double-ended design perfect for daily care and professional cleaning',
+    price: 12.99,
+    currency: 'USD',
+    category: '个人护理',
+    categoryEn: 'Personal Care',
+    image: '/images/products/Cotton Swabs/1754458190_1004_2218051817.webp',
+    amazonUrl: 'https://www.amazon.com/dp/B0CXXXXXXX',
+    features: ['100%有机棉', '双端设计', '无绒毛', '环保材质', '多种用途'],
+    featuresEn: ['100% Organic Cotton', 'Double-Ended Design', 'Lint-Free', 'Eco-Friendly', 'Multi-Purpose'],
+    specifications: {
+      '材质': '100%有机棉',
+      '包装': '100支/盒',
+      '尺寸': '标准尺寸',
+      '用途': '个人护理、清洁',
+      '特点': '无绒毛，双端设计'
+    },
+    specificationsEn: {
+      'Material': '100% Organic Cotton',
+      'Packaging': '100-count per box',
+      'Size': 'Standard size',
+      'Usage': 'Personal care, cleaning',
+      'Features': 'Lint-free, double-ended'
+    },
+    inStock: true,
+    rating: 4.7,
+    reviewCount: 203,
+    sku: 'CS-100',
+    weight: '50g',
+    dimensions: '8cm x 5cm x 3cm',
+    createdAt: '2024-01-15',
+    updatedAt: '2024-01-15'
+  },
+  {
+    id: '6',
+    name: '迷你棉签',
+    nameEn: 'Mini Cotton Swabs',
+    description: '便携式迷你棉签，30支装，适合旅行和外出使用，100%棉质材质',
+    descriptionEn: 'Portable mini cotton swabs in 30-count packaging, perfect for travel and on-the-go use, made with 100% cotton material',
+    price: 8.99,
+    currency: 'USD',
+    category: '个人护理',
+    categoryEn: 'Personal Care',
+    image: '/images/products/Cotton Swabs/1754458293_1205_2506014983.webp',
+    amazonUrl: 'https://www.amazon.com/dp/B0DXXXXXXX',
+    features: ['100%棉质', '便携设计', '旅行必备', '无绒毛', '多用途'],
+    featuresEn: ['100% Cotton Material', 'Portable Design', 'Travel Essential', 'Lint-Free', 'Multi-Purpose'],
+    specifications: {
+      '材质': '100%棉质',
+      '包装': '30支/盒',
+      '尺寸': '迷你尺寸',
+      '用途': '旅行、便携护理',
+      '特点': '轻便，易携带'
+    },
+    specificationsEn: {
+      'Material': '100% Cotton',
+      'Packaging': '30-count per box',
+      'Size': 'Mini size',
+      'Usage': 'Travel, portable care',
+      'Features': 'Lightweight, easy to carry'
+    },
+    inStock: true,
+    rating: 4.5,
+    reviewCount: 156,
+    sku: 'CS-030',
+    weight: '25g',
+    dimensions: '6cm x 4cm x 2cm',
+    createdAt: '2024-01-15',
+    updatedAt: '2024-01-15'
   }
 ];
 

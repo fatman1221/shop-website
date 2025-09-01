@@ -10,9 +10,29 @@ interface ProductDetailClientProps {
   recommendedProducts: Product[];
 }
 
+// 棉签产品特殊信息
+const getCottonSwabDetails = (productId: string) => {
+  const details: Record<string, any> = {
+    '5': { // Premium Cotton Swabs (SNDZ-CSW100)
+      packageQuantity: '100-count cotton swabs per pack, stored in a clear hygienic box to prevent dust and facilitate daily use.',
+      materialDesign: 'Tips made of 100% natural organic cotton, soft absorbent, and lint-free. Wooden or paper stick (chlorine-free and cruelty-free), smooth and sturdy after high-temperature treatment. Rounded end for gentle applications, Pointed end for precision cleaning in hard-to-reach areas.',
+      wideApplications: 'Personal care: Makeup application/removal (lipstick, eyeliner), baby hygiene (toes, nose), pet care. Household cleaning: Electronics (keyboards, phone ports), collectibles, delicate surfaces.'
+    },
+    '6': { // Mini Cotton Swabs (SNDZ-CSW30)
+      packageQuantity: '30 count cotton swabs per pack, stored in a clear hygienic box to prevent dust and facilitate daily use.',
+      materialDesign: 'Made with 100% cotton for a soft, gentle touch with hygienic protection, perfect for baby\'s sensitive skin or minor scrapes. Extra-thick cotton tips stay fresh longer, ideal for sensitive skin care and ointment application.',
+      wideApplications: 'First aid, hygiene, and gentle cleaning: A trusted companion for daily care and travel needs. Makeup & beauty touch-ups: Perfect for fixing smudges, removing makeup, and nail touch-ups on the go.'
+    }
+  };
+  return details[productId];
+};
+
 export default function ProductDetailClient({ product, recommendedProducts }: ProductDetailClientProps) {
   const [showModal, setShowModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState(0);
+
+  // 获取棉签产品详细信息
+  const cottonSwabDetails = getCottonSwabDetails(product.id);
 
   // 模拟多张产品图片
   const productImages = [
@@ -80,6 +100,26 @@ export default function ProductDetailClient({ product, recommendedProducts }: Pr
                 Buy on Amazon
               </a>
             </div>
+
+            {/* Cotton Swabs Detailed Specifications */}
+            {cottonSwabDetails && (
+              <div className="space-y-6 pt-8 border-t border-gray-200">
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-4">Package & Quantity</h3>
+                  <p className="text-gray-600 leading-relaxed">{cottonSwabDetails.packageQuantity}</p>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-4">Material & Design</h3>
+                  <p className="text-gray-600 leading-relaxed">{cottonSwabDetails.materialDesign}</p>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-4">Wide Applications</h3>
+                  <p className="text-gray-600 leading-relaxed">{cottonSwabDetails.wideApplications}</p>
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
