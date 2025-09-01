@@ -14,31 +14,27 @@ type CategoryImages = {
 const getCustomProductInfo = (category: string, imageIndex: number) => {
   const customInfo: Record<string, Array<{
     name: string;
-    description: string;
     sku: string;
-    price: string;
   }>> = {
     'Cotton Swabs': [
       {
-        name: 'SNDZ-CSW100',
-        description: '100-count cotton swabs per pack, stored in a clear hygienic box to prevent dust and facilitate daily use.',
-        sku: 'CSW100',
-        price: '$12.99'
+        name: 'SNDZ-CSW100 Cotton Swabs',
+        sku: 'CSW100'
       },
       {
-        name: 'SNDZ-CSW30', 
-        description: '30 count cotton swabs per pack, stored in a clear hygienic box to prevent dust and facilitate daily use.',
-        sku: 'CSW30',
-        price: '$8.99'
+        name: 'SNDZ-CSW30 Mini Cotton Swabs', 
+        sku: 'CSW30'
+      },
+      {
+        name: 'SNDZ-CSW100 Cotton Swabs',
+        sku: 'CSW100'
       }
     ]
   };
   
   return customInfo[category]?.[imageIndex] || {
     name: `${category} #${imageIndex + 1}`,
-    description: 'High-quality curated product imagery',
-    sku: '',
-    price: ''
+    sku: ''
   };
 };
 
@@ -163,12 +159,8 @@ export default function ProductsClient({ groups }: { groups: CategoryImages[] })
                   return (
                     <>
                       <h3 className="text-sm font-medium text-gray-900 truncate">{productInfo.name}</h3>
-                      <p className="mt-1 text-xs text-gray-500">{productInfo.description}</p>
                       {productInfo.sku && (
                         <p className="mt-1 text-xs text-gray-400">SKU: {productInfo.sku}</p>
-                      )}
-                      {productInfo.price && (
-                        <p className="mt-1 text-sm font-semibold text-[var(--brand-start)]">{productInfo.price}</p>
                       )}
                       <div className="mt-4 flex items-center gap-2">
                         <button className="btn-brand-outline btn-sm" onClick={() => setLightboxIndex(idx)}>Preview</button>
