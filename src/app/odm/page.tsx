@@ -38,7 +38,7 @@ export default function ODMPage() {
                   <WebPImage
                     src="/images/odm/2450469935.webp"
                     alt="Product Selection"
-                    className="w-full rounded-2xl shadow-2xl"
+                    className="rounded-2xl shadow-2xl"
                   />
                 </div>
               <div className="space-y-8">
@@ -64,7 +64,7 @@ export default function ODMPage() {
                   <WebPImage
                     src="/images/odm/omd.webp"
                     alt="Proposal Design"
-                    className="w-full rounded-2xl shadow-2xl"
+                    className="rounded-2xl shadow-2xl"
                   />
                 </div>
               <div className="lg:order-1 space-y-8">
@@ -90,7 +90,7 @@ export default function ODMPage() {
                   <WebPImage
                     src="/images/odm/shutterstock_2291349107.webp"
                     alt="Sample Production"
-                    className="w-full rounded-2xl shadow-2xl"
+                    className="rounded-2xl shadow-2xl"
                   />
                 </div>
               <div className="space-y-8">
@@ -116,7 +116,7 @@ export default function ODMPage() {
                   <WebPImage
                     src="/images/odm/shutterstock_2456126665.webp"
                     alt="Mass Production"
-                    className="w-full rounded-2xl shadow-2xl"
+                    className="rounded-2xl shadow-2xl"
                   />
                 </div>
               <div className="lg:order-1 space-y-8">
