@@ -34,15 +34,15 @@ export default function ODMPage() {
         <div className="min-h-screen flex items-center py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-              <div className="relative">
-                <WebPImage
-                  src="/images/odm/2450469935.webp"
-                  alt="Product Selection"
-                  width={900}
-                  height={600}
-                  className="w-full h-auto object-contain rounded-2xl shadow-2xl"
-                />
-              </div>
+                <div className="relative">
+                  <WebPImage
+                    src="/images/odm/2450469935.webp"
+                    alt="Product Selection"
+                    width={1200}
+                    height={800}
+                    className="w-full h-auto object-contain rounded-2xl shadow-2xl"
+                  />
+                </div>
               <div className="space-y-8">
                 <div className="flex items-center mb-6">
                   <span className="w-16 h-16 bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] rounded-full flex items-center justify-center text-white font-bold text-2xl mr-6 flex-shrink-0">1</span>
@@ -62,15 +62,15 @@ export default function ODMPage() {
         <div className="min-h-screen flex items-center py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-              <div className="lg:order-2">
-                <WebPImage
-                  src="/images/odm/omd.webp"
-                  alt="Proposal Design"
-                  width={900}
-                  height={600}
-                  className="w-full h-auto object-contain rounded-2xl shadow-2xl"
-                />
-              </div>
+                <div className="lg:order-2">
+                  <WebPImage
+                    src="/images/odm/omd.webp"
+                    alt="Proposal Design"
+                    width={1200}
+                    height={800}
+                    className="w-full h-auto object-contain rounded-2xl shadow-2xl"
+                  />
+                </div>
               <div className="lg:order-1 space-y-8">
                 <div className="flex items-center mb-6">
                   <span className="w-16 h-16 bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] rounded-full flex items-center justify-center text-white font-bold text-2xl mr-6 flex-shrink-0">2</span>
@@ -90,15 +90,15 @@ export default function ODMPage() {
         <div className="min-h-screen flex items-center py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-              <div className="relative">
-                <WebPImage
-                  src="/images/odm/shutterstock_2291349107.webp"
-                  alt="Sample Production"
-                  width={900}
-                  height={600}
-                  className="w-full h-auto object-contain rounded-2xl shadow-2xl"
-                />
-              </div>
+                <div className="relative">
+                  <WebPImage
+                    src="/images/odm/shutterstock_2291349107.webp"
+                    alt="Sample Production"
+                    width={1500}
+                    height={1000}
+                    className="w-full h-auto object-contain rounded-2xl shadow-2xl"
+                  />
+                </div>
               <div className="space-y-8">
                 <div className="flex items-center mb-6">
                   <span className="w-16 h-16 bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] rounded-full flex items-center justify-center text-white font-bold text-2xl mr-6 flex-shrink-0">3</span>
@@ -118,15 +118,15 @@ export default function ODMPage() {
         <div className="min-h-screen flex items-center py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-              <div className="lg:order-2">
-                <WebPImage
-                  src="/images/odm/shutterstock_2456126665.webp"
-                  alt="Mass Production"
-                  width={900}
-                  height={600}
-                  className="w-full h-auto object-contain rounded-2xl shadow-2xl"
-                />
-              </div>
+                <div className="lg:order-2">
+                  <WebPImage
+                    src="/images/odm/shutterstock_2456126665.webp"
+                    alt="Mass Production"
+                    width={1500}
+                    height={1000}
+                    className="w-full h-auto object-contain rounded-2xl shadow-2xl"
+                  />
+                </div>
               <div className="lg:order-1 space-y-8">
                 <div className="flex items-center mb-6">
                   <span className="w-16 h-16 bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] rounded-full flex items-center justify-center text-white font-bold text-2xl mr-6 flex-shrink-0">4</span>
