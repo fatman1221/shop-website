@@ -38,8 +38,6 @@ export default function ODMPage() {
                   <WebPImage
                     src="/images/odm/2450469935.webp"
                     alt="Product Selection"
-                    width={1200}
-                    height={800}
                     className="w-full rounded-2xl shadow-2xl"
                   />
                 </div>
@@ -66,8 +64,6 @@ export default function ODMPage() {
                   <WebPImage
                     src="/images/odm/omd.webp"
                     alt="Proposal Design"
-                    width={1200}
-                    height={800}
                     className="w-full rounded-2xl shadow-2xl"
                   />
                 </div>
@@ -94,8 +90,6 @@ export default function ODMPage() {
                   <WebPImage
                     src="/images/odm/shutterstock_2291349107.webp"
                     alt="Sample Production"
-                    width={1500}
-                    height={1000}
                     className="w-full rounded-2xl shadow-2xl"
                   />
                 </div>
@@ -122,8 +116,6 @@ export default function ODMPage() {
                   <WebPImage
                     src="/images/odm/shutterstock_2456126665.webp"
                     alt="Mass Production"
-                    width={1500}
-                    height={1000}
                     className="w-full rounded-2xl shadow-2xl"
                   />
                 </div>
