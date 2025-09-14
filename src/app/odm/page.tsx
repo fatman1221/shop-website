@@ -23,11 +23,11 @@ export default function ODMPage() {
       </section>
 
       {/* Process Steps - Simplified */}
-      <section className="py-16 md:py-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-16">
+      <section className="py-20 md:py-32">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-24 md:space-y-32">
             {/* Step 1 */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div className="relative">
                 <WebPImage
                   src="/images/odm/2450469935.webp"
@@ -37,7 +37,7 @@ export default function ODMPage() {
                   className="w-full h-auto object-contain rounded-lg"
                 />
               </div>
-              <div className="space-y-4">
+              <div className="space-y-6">
                 <h3 className="text-2xl font-light text-gray-900">
                   <span className="text-[var(--brand-start)]">1.</span> Product Selection & Requirements Communication
                 </h3>
@@ -48,7 +48,7 @@ export default function ODMPage() {
             </div>
 
             {/* Step 2 */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div className="lg:order-2">
                 <WebPImage
                   src="/images/odm/omd.webp"
@@ -69,7 +69,7 @@ export default function ODMPage() {
             </div>
 
             {/* Step 3 */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div className="relative">
                 <WebPImage
                   src="/images/odm/shutterstock_2291349107.webp"
@@ -79,7 +79,7 @@ export default function ODMPage() {
                   className="w-full h-auto object-contain rounded-lg"
                 />
               </div>
-              <div className="space-y-4">
+              <div className="space-y-6">
                 <h3 className="text-2xl font-light text-gray-900">
                   <span className="text-[var(--brand-start)]">3.</span> Sample Production & Confirmation
                 </h3>
@@ -90,7 +90,7 @@ export default function ODMPage() {
             </div>
 
             {/* Step 4 */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div className="lg:order-2">
                 <WebPImage
                   src="/images/odm/shutterstock_2456126665.webp"
@@ -114,13 +114,13 @@ export default function ODMPage() {
       </section>
 
       {/* MOQ Section - Simplified */}
-      <section className="py-16 md:py-24 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 md:py-32 bg-gray-50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-3xl font-light text-gray-900 mb-8">
+            <h2 className="text-3xl font-light text-gray-900 mb-12">
               <span className="brand-gradient-text">Regarding MOQ</span>
             </h2>
-            <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+            <div className="bg-white rounded-2xl shadow-lg p-10 md:p-16">
               <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
                 To seek long-term cooperation, therefore, initially you don&apos;t need to worry about the minimum order quantity; 
                 feel free to contact us for small-volume test orders at any time. If you are satisfied with our service and products, 
