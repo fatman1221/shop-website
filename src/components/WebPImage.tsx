@@ -21,6 +21,18 @@ export default function WebPImage({
   priority = false,
   sizes,
 }: WebPImageProps) {
+  // 如果没有提供width和height，使用普通img标签以保持原始尺寸
+  if (!width && !height && !fill) {
+    return (
+      <img
+        src={src}
+        alt={alt}
+        className={className}
+        loading={priority ? 'eager' : 'lazy'}
+      />
+    );
+  }
+
   return (
     <Image
       src={src}
