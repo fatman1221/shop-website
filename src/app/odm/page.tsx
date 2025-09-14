@@ -46,7 +46,7 @@ export default function ODMPage() {
               <div className="space-y-8">
                 <div className="flex items-center mb-6">
                   <span className="w-16 h-16 bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] rounded-full flex items-center justify-center text-white font-bold text-2xl mr-6 flex-shrink-0">1</span>
-                  <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+                  <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
                     Product Selection & Requirements Communication
                   </h2>
                 </div>
@@ -74,7 +74,7 @@ export default function ODMPage() {
               <div className="lg:order-1 space-y-8">
                 <div className="flex items-center mb-6">
                   <span className="w-16 h-16 bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] rounded-full flex items-center justify-center text-white font-bold text-2xl mr-6 flex-shrink-0">2</span>
-                  <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+                  <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
                     Proposal Design & Confirmation
                   </h2>
                 </div>
@@ -102,7 +102,7 @@ export default function ODMPage() {
               <div className="space-y-8">
                 <div className="flex items-center mb-6">
                   <span className="w-16 h-16 bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] rounded-full flex items-center justify-center text-white font-bold text-2xl mr-6 flex-shrink-0">3</span>
-                  <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+                  <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
                     Sample Production & Confirmation
                   </h2>
                 </div>
@@ -130,7 +130,7 @@ export default function ODMPage() {
               <div className="lg:order-1 space-y-8">
                 <div className="flex items-center mb-6">
                   <span className="w-16 h-16 bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] rounded-full flex items-center justify-center text-white font-bold text-2xl mr-6 flex-shrink-0">4</span>
-                  <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+                  <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
                     Order Negotiation & Mass Production
                   </h2>
                 </div>
