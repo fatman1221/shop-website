@@ -85,15 +85,6 @@ export default function Navbar() {
               About
             </Link>
             <Link
-              href="/odm"
-              className={`hover:text-purple-400 px-3 py-2 text-sm font-medium transition-colors duration-300 ${
-                isHomePage && !isScrolled ? 'text-white/95' : 'text-gray-700 hover:text-purple-600'
-              }`}
-              style={isHomePage && !isScrolled ? { textShadow: '0 2px 4px rgba(0,0,0,0.6)' } : {}}
-            >
-              ODM/OEM
-            </Link>
-            <Link
               href="/contact"
               className={`hover:text-purple-400 px-3 py-2 text-sm font-medium transition-colors duration-300 ${
                 isHomePage && !isScrolled ? 'text-white/95' : 'text-gray-700 hover:text-purple-600'
@@ -101,6 +92,15 @@ export default function Navbar() {
               style={isHomePage && !isScrolled ? { textShadow: '0 2px 4px rgba(0,0,0,0.6)' } : {}}
             >
               Contact
+            </Link>
+            <Link
+              href="/odm"
+              className={`hover:text-purple-400 px-3 py-2 text-sm font-medium transition-colors duration-300 ${
+                isHomePage && !isScrolled ? 'text-white/95' : 'text-gray-700 hover:text-purple-600'
+              }`}
+              style={isHomePage && !isScrolled ? { textShadow: '0 2px 4px rgba(0,0,0,0.6)' } : {}}
+            >
+              ODM/OEM
             </Link>
           </div>
 
@@ -150,18 +150,18 @@ export default function Navbar() {
                 About
               </Link>
               <Link
-                href="/odm"
-                className="text-gray-700 hover:text-purple-600 block px-3 py-2 text-base font-medium transition-colors rounded-md hover:bg-purple-50"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                ODM/OEM
-              </Link>
-              <Link
                 href="/contact"
                 className="text-gray-700 hover:text-purple-600 block px-3 py-2 text-base font-medium transition-colors rounded-md hover:bg-purple-50"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Contact
+              </Link>
+              <Link
+                href="/odm"
+                className="text-gray-700 hover:text-purple-600 block px-3 py-2 text-base font-medium transition-colors rounded-md hover:bg-purple-50"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                ODM/OEM
               </Link>
             </div>
           </div>
