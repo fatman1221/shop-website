@@ -8,11 +8,16 @@ export default function ODMPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h1 className="text-5xl md:text-6xl font-light text-gray-900 tracking-tight mb-6">
-              ODM/OEM
+              <span className="brand-gradient-text">ODM/OEM</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               We Can Provide You with Complete Customized Solutions
             </p>
+            <div className="mt-8">
+              <span className="inline-block text-sm font-semibold bg-gradient-to-r from-[var(--brand-start)]/10 to-[var(--brand-end)]/10 text-[var(--brand-start)] px-4 py-2 rounded-full">
+                Custom Manufacturing Services
+              </span>
+            </div>
           </div>
         </div>
       </section>
@@ -34,7 +39,7 @@ export default function ODMPage() {
               </div>
               <div className="space-y-4">
                 <h3 className="text-2xl font-light text-gray-900">
-                  1. Product Selection & Requirements Communication
+                  <span className="text-[var(--brand-start)]">1.</span> Product Selection & Requirements Communication
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
                   First, you can select product types or specific models of interest from our product library. You provide brand materials (such as Logo, color codes) and preliminary design requirements (such as function, style, positioning, etc.).
@@ -55,7 +60,7 @@ export default function ODMPage() {
               </div>
               <div className="lg:order-1 space-y-4">
                 <h3 className="text-2xl font-light text-gray-900">
-                  2. Proposal Design & Confirmation
+                  <span className="text-[var(--brand-start)]">2.</span> Proposal Design & Confirmation
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
                   Based on your requirements, our professional design team will provide design proposals, including product appearance and packaging, until the proposal receives your final confirmation.
@@ -76,7 +81,7 @@ export default function ODMPage() {
               </div>
               <div className="space-y-4">
                 <h3 className="text-2xl font-light text-gray-900">
-                  3. Sample Production & Confirmation
+                  <span className="text-[var(--brand-start)]">3.</span> Sample Production & Confirmation
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
                   After the design proposal is confirmed, we will produce physical samples for you to ensure all details of the product, such as feel, function, and quality, meet your expectations.
@@ -97,7 +102,7 @@ export default function ODMPage() {
               </div>
               <div className="lg:order-1 space-y-4">
                 <h3 className="text-2xl font-light text-gray-900">
-                  4. Order Negotiation & Mass Production
+                  <span className="text-[var(--brand-start)]">4.</span> Order Negotiation & Mass Production
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
                   After the samples are confirmed, we will proceed with order negotiations. After both parties sign the order contract, the factory will commence mass production, strictly adhering to the sample standards for quality control.
@@ -113,13 +118,15 @@ export default function ODMPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-3xl font-light text-gray-900 mb-8">
-              Regarding MOQ
+              <span className="brand-gradient-text">Regarding MOQ</span>
             </h2>
-            <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
-              To seek long-term cooperation, therefore, initially you don&apos;t need to worry about the minimum order quantity; 
-              feel free to contact us for small-volume test orders at any time. If you are satisfied with our service and products, 
-              I believe we will have more opportunities for cooperation in the future.
-            </p>
+            <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+              <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
+                To seek long-term cooperation, therefore, initially you don&apos;t need to worry about the minimum order quantity; 
+                feel free to contact us for small-volume test orders at any time. If you are satisfied with our service and products, 
+                I believe we will have more opportunities for cooperation in the future.
+              </p>
+            </div>
           </div>
         </div>
       </section>
