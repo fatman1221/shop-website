@@ -40,7 +40,7 @@ export default function ODMPage() {
                     alt="Product Selection"
                     width={1200}
                     height={800}
-                    className="w-full h-auto object-contain rounded-2xl shadow-2xl min-h-[500px]"
+                    className="w-full h-[600px] object-cover rounded-2xl shadow-2xl"
                   />
                 </div>
               <div className="space-y-8">
@@ -68,7 +68,7 @@ export default function ODMPage() {
                     alt="Proposal Design"
                     width={1200}
                     height={800}
-                    className="w-full h-auto object-contain rounded-2xl shadow-2xl min-h-[500px]"
+                    className="w-full h-[500px] object-cover rounded-2xl shadow-2xl"
                   />
                 </div>
               <div className="lg:order-1 space-y-8">
@@ -96,7 +96,7 @@ export default function ODMPage() {
                     alt="Sample Production"
                     width={1500}
                     height={1000}
-                    className="w-full h-auto object-contain rounded-2xl shadow-2xl min-h-[600px]"
+                    className="w-full h-[700px] object-cover rounded-2xl shadow-2xl"
                   />
                 </div>
               <div className="space-y-8">
@@ -124,7 +124,7 @@ export default function ODMPage() {
                     alt="Mass Production"
                     width={1500}
                     height={1000}
-                    className="w-full h-auto object-contain rounded-2xl shadow-2xl min-h-[600px]"
+                    className="w-full h-[650px] object-cover rounded-2xl shadow-2xl"
                   />
                 </div>
               <div className="lg:order-1 space-y-8">
