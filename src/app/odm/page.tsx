@@ -135,23 +135,8 @@ export default function ODMPage() {
         </div>
       </section>
 
-      {/* MOQ Section */}
-      <section className="min-h-screen flex items-center py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="text-center">
-            <h2 className="text-5xl md:text-6xl font-light text-gray-900 mb-16">
-              <span className="brand-gradient-text">Regarding MOQ</span>
-            </h2>
-            <div className="bg-white rounded-3xl shadow-2xl p-16 md:p-24 max-w-5xl mx-auto">
-              <p className="text-2xl text-gray-600 leading-relaxed">
-                To seek long-term cooperation, therefore, initially you don&apos;t need to worry about the minimum order quantity; 
-                feel free to contact us for small-volume test orders at any time. If you are satisfied with our service and products, 
-                I believe we will have more opportunities for cooperation in the future.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+
+      
     </div>
   );
 }
