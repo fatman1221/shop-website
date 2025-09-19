@@ -93,6 +93,7 @@ export default function Navbar() {
             >
               Contact
             </Link>
+            {/* 暂时隐藏 ODM/OEM 页面
             <Link
               href="/odm"
               className={`hover:text-purple-400 px-3 py-2 text-sm font-medium transition-colors duration-300 ${
@@ -102,6 +103,7 @@ export default function Navbar() {
             >
               ODM/OEM
             </Link>
+            */}
           </div>
 
           {/* Mobile menu button */}
@@ -156,6 +158,7 @@ export default function Navbar() {
               >
                 Contact
               </Link>
+              {/* 暂时隐藏 ODM/OEM 页面
               <Link
                 href="/odm"
                 className="text-gray-700 hover:text-purple-600 block px-3 py-2 text-base font-medium transition-colors rounded-md hover:bg-purple-50"
@@ -163,6 +166,7 @@ export default function Navbar() {
               >
                 ODM/OEM
               </Link>
+              */}
             </div>
           </div>
         )}
