@@ -30,6 +30,18 @@ export const categoryTree: CategoryNode[] = [
         nameEn: 'Tools & Accessories',
         children: [
           {
+            id: 'travel-series',
+            name: '旅行系列',
+            nameEn: 'Travel Series',
+            products: [
+              { id: '108', name: 'BRDZ-HC1501', nameEn: 'BRDZ-HC1501', sku: 'HC1501', image: '/images/products/Travel Series/BRDZ-HC1501.png', description: 'Travel hair comb for on-the-go grooming.', descriptionEn: 'Travel hair comb for on-the-go grooming.' },
+              { id: '109', name: 'BRDZ-MB1401', nameEn: 'BRDZ-MB1401', sku: 'MB1401', image: '/images/products/Travel Series/BRDZ-MB1401.png', description: 'Mini bottle for travel toiletries.', descriptionEn: 'Mini bottle for travel toiletries.' },
+              { id: '110', name: 'BRDZ-MB1402', nameEn: 'BRDZ-MB1402', sku: 'MB1402', image: '/images/products/Travel Series/BRDZ-MB1402.png', description: 'Compact travel container for liquids.', descriptionEn: 'Compact travel container for liquids.' },
+              { id: '111', name: 'BRDZ-TB1801', nameEn: 'BRDZ-TB1801', sku: 'TB1801', image: '/images/products/Travel Series/BRDZ-TB1801.png', description: 'Travel toothbrush with protective case.', descriptionEn: 'Travel toothbrush with protective case.' },
+              { id: '112', name: 'BRDZ-TB1802', nameEn: 'BRDZ-TB1802', sku: 'TB1802', image: '/images/products/Travel Series/BRDZ-TB1802.png', description: 'Portable toothbrush ideal for travel.', descriptionEn: 'Portable toothbrush ideal for travel.' }
+            ]
+          },
+          {
             id: 'cotton-balls-swabs',
             name: '棉球与棉签',
             nameEn: 'Cotton Balls & Swabs',
