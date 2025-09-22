@@ -56,6 +56,114 @@ export const categoryTree: CategoryNode[] = [
                     image: '/images/products/Cotton Swabs/1754460312_1947_2011384649.webp',
                     description: '30 count cotton swabs per pack, stored in a clear hygienic box to prevent dust and facilitate daily use.',
                     descriptionEn: '30 count cotton swabs per pack, stored in a clear hygienic box to prevent dust and facilitate daily use.'
+                  },
+                  {
+                    id: '13',
+                    name: 'BRDZ-KM101',
+                    nameEn: 'BRDZ-KM101',
+                    sku: 'KM101',
+                    image: '/images/products/Cotton Swabs/BRDZ-KM101.png',
+                    description: 'High-quality cotton swabs for personal care and household use.',
+                    descriptionEn: 'High-quality cotton swabs for personal care and household use.'
+                  },
+                  {
+                    id: '14',
+                    name: 'BRDZ-KM102',
+                    nameEn: 'BRDZ-KM102',
+                    sku: 'KM102',
+                    image: '/images/products/Cotton Swabs/BRDZ-KM102.png',
+                    description: 'Premium cotton swabs for gentle skincare and makeup application.',
+                    descriptionEn: 'Premium cotton swabs for gentle skincare and makeup application.'
+                  },
+                  {
+                    id: '15',
+                    name: 'BRDZ-KM106',
+                    nameEn: 'BRDZ-KM106',
+                    sku: 'KM106',
+                    image: '/images/products/Cotton Swabs/BRDZ-KM106.png',
+                    description: 'Professional cotton swabs for precise cleaning and application.',
+                    descriptionEn: 'Professional cotton swabs for precise cleaning and application.'
+                  },
+                  {
+                    id: '16',
+                    name: 'BRDZ-KM108',
+                    nameEn: 'BRDZ-KM108',
+                    sku: 'KM108',
+                    image: '/images/products/Cotton Swabs/BRDZ-KM108.png',
+                    description: 'Soft cotton swabs for sensitive skin care.',
+                    descriptionEn: 'Soft cotton swabs for sensitive skin care.'
+                  },
+                  {
+                    id: '17',
+                    name: 'BRDZ-KM109',
+                    nameEn: 'BRDZ-KM109',
+                    sku: 'KM109',
+                    image: '/images/products/Cotton Swabs/BRDZ-KM109.png',
+                    description: 'Gentle cotton swabs for baby care and delicate applications.',
+                    descriptionEn: 'Gentle cotton swabs for baby care and delicate applications.'
+                  },
+                  {
+                    id: '18',
+                    name: 'BRDZ-KM110',
+                    nameEn: 'BRDZ-KM110',
+                    sku: 'KM110',
+                    image: '/images/products/Cotton Swabs/BRDZ-KM110.png',
+                    description: 'Multi-purpose cotton swabs for various cleaning tasks.',
+                    descriptionEn: 'Multi-purpose cotton swabs for various cleaning tasks.'
+                  },
+                  {
+                    id: '19',
+                    name: 'BRDZ-KM112',
+                    nameEn: 'BRDZ-KM112',
+                    sku: 'KM112',
+                    image: '/images/products/Cotton Swabs/BRDZ-KM112.png',
+                    description: 'Lint-free cotton swabs for electronics and precision work.',
+                    descriptionEn: 'Lint-free cotton swabs for electronics and precision work.'
+                  },
+                  {
+                    id: '20',
+                    name: 'BRDZ-KM118',
+                    nameEn: 'BRDZ-KM118',
+                    sku: 'KM118',
+                    image: '/images/products/Cotton Swabs/BRDZ-KM118.png',
+                    description: 'Extra-soft cotton swabs for gentle makeup removal.',
+                    descriptionEn: 'Extra-soft cotton swabs for gentle makeup removal.'
+                  },
+                  {
+                    id: '21',
+                    name: 'BRDZ-KM124',
+                    nameEn: 'BRDZ-KM124',
+                    sku: 'KM124',
+                    image: '/images/products/Cotton Swabs/BRDZ-KM124.png',
+                    description: 'Medical-grade cotton swabs for professional use.',
+                    descriptionEn: 'Medical-grade cotton swabs for professional use.'
+                  },
+                  {
+                    id: '22',
+                    name: 'BRDZ-KM133',
+                    nameEn: 'BRDZ-KM133',
+                    sku: 'KM133',
+                    image: '/images/products/Cotton Swabs/BRDZ-KM133.png',
+                    description: 'Eco-friendly cotton swabs for sustainable personal care.',
+                    descriptionEn: 'Eco-friendly cotton swabs for sustainable personal care.'
+                  },
+                  {
+                    id: '23',
+                    name: 'BRDZ-KM148',
+                    nameEn: 'BRDZ-KM148',
+                    sku: 'KM148',
+                    image: '/images/products/Cotton Swabs/BRDZ-KM148.png',
+                    description: 'Travel-size cotton swabs for on-the-go convenience.',
+                    descriptionEn: 'Travel-size cotton swabs for on-the-go convenience.'
+                  },
+                  {
+                    id: '24',
+                    name: 'BRDZ-KM149',
+                    nameEn: 'BRDZ-KM149',
+                    sku: 'KM149',
+                    image: '/images/products/Cotton Swabs/BRDZ-KM149.png',
+                    description: 'Bulk cotton swabs for commercial and household use.',
+                    descriptionEn: 'Bulk cotton swabs for commercial and household use.'
                   }
                 ]
               },
@@ -72,6 +180,114 @@ export const categoryTree: CategoryNode[] = [
                     image: '/images/products/Cotton Pads/1753760779_1143_2629376269.eps',
                     description: 'Soft cotton pads for makeup removal and skincare.',
                     descriptionEn: 'Soft cotton pads for makeup removal and skincare.'
+                  },
+                  {
+                    id: '25',
+                    name: 'BRDZ-KM213',
+                    nameEn: 'BRDZ-KM213',
+                    sku: 'KM213',
+                    image: '/images/products/Cotton Pads/BRDZ-KM213.png',
+                    description: 'High-quality cotton pads for gentle makeup removal.',
+                    descriptionEn: 'High-quality cotton pads for gentle makeup removal.'
+                  },
+                  {
+                    id: '26',
+                    name: 'BRDZ-KM214',
+                    nameEn: 'BRDZ-KM214',
+                    sku: 'KM214',
+                    image: '/images/products/Cotton Pads/BRDZ-KM214.png',
+                    description: 'Premium cotton pads for sensitive skin care.',
+                    descriptionEn: 'Premium cotton pads for sensitive skin care.'
+                  },
+                  {
+                    id: '27',
+                    name: 'BRDZ-KM215',
+                    nameEn: 'BRDZ-KM215',
+                    sku: 'KM215',
+                    image: '/images/products/Cotton Pads/BRDZ-KM215.png',
+                    description: 'Extra-soft cotton pads for delicate applications.',
+                    descriptionEn: 'Extra-soft cotton pads for delicate applications.'
+                  },
+                  {
+                    id: '28',
+                    name: 'BRDZ-KM216',
+                    nameEn: 'BRDZ-KM216',
+                    sku: 'KM216',
+                    image: '/images/products/Cotton Pads/BRDZ-KM216.png',
+                    description: 'Professional cotton pads for skincare routines.',
+                    descriptionEn: 'Professional cotton pads for skincare routines.'
+                  },
+                  {
+                    id: '29',
+                    name: 'BRDZ-KM217',
+                    nameEn: 'BRDZ-KM217',
+                    sku: 'KM217',
+                    image: '/images/products/Cotton Pads/BRDZ-KM217.png',
+                    description: 'Lint-free cotton pads for precise makeup application.',
+                    descriptionEn: 'Lint-free cotton pads for precise makeup application.'
+                  },
+                  {
+                    id: '30',
+                    name: 'BRDZ-KM218',
+                    nameEn: 'BRDZ-KM218',
+                    sku: 'KM218',
+                    image: '/images/products/Cotton Pads/BRDZ-KM218.png',
+                    description: 'Gentle cotton pads for baby care and sensitive skin.',
+                    descriptionEn: 'Gentle cotton pads for baby care and sensitive skin.'
+                  },
+                  {
+                    id: '31',
+                    name: 'BRDZ-KM219',
+                    nameEn: 'BRDZ-KM219',
+                    sku: 'KM219',
+                    image: '/images/products/Cotton Pads/BRDZ-KM219.png',
+                    description: 'Multi-purpose cotton pads for various beauty needs.',
+                    descriptionEn: 'Multi-purpose cotton pads for various beauty needs.'
+                  },
+                  {
+                    id: '32',
+                    name: 'BRDZ-KM220',
+                    nameEn: 'BRDZ-KM220',
+                    sku: 'KM220',
+                    image: '/images/products/Cotton Pads/BRDZ-KM220.png',
+                    description: 'Eco-friendly cotton pads for sustainable beauty routines.',
+                    descriptionEn: 'Eco-friendly cotton pads for sustainable beauty routines.'
+                  },
+                  {
+                    id: '33',
+                    name: 'BRDZ-KM221',
+                    nameEn: 'BRDZ-KM221',
+                    sku: 'KM221',
+                    image: '/images/products/Cotton Pads/BRDZ-KM221.png',
+                    description: 'Travel-size cotton pads for on-the-go convenience.',
+                    descriptionEn: 'Travel-size cotton pads for on-the-go convenience.'
+                  },
+                  {
+                    id: '34',
+                    name: 'BRDZ-KM222',
+                    nameEn: 'BRDZ-KM222',
+                    sku: 'KM222',
+                    image: '/images/products/Cotton Pads/BRDZ-KM222.png',
+                    description: 'Bulk cotton pads for commercial and household use.',
+                    descriptionEn: 'Bulk cotton pads for commercial and household use.'
+                  },
+                  {
+                    id: '35',
+                    name: 'BRDZ-KM223',
+                    nameEn: 'BRDZ-KM223',
+                    sku: 'KM223',
+                    image: '/images/products/Cotton Pads/BRDZ-KM223.png',
+                    description: 'Medical-grade cotton pads for professional use.',
+                    descriptionEn: 'Medical-grade cotton pads for professional use.'
+                  },
+                  {
+                    id: '36',
+                    name: 'BRDZ-KM224',
+                    nameEn: 'BRDZ-KM224',
+                    sku: 'KM224',
+                    image: '/images/products/Cotton Pads/BRDZ-KM224.png',
+                    description: 'Round cotton pads for versatile beauty applications.',
+                    descriptionEn: 'Round cotton pads for versatile beauty applications.'
                   }
                 ]
               },
