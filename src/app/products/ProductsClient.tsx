@@ -22,7 +22,6 @@ export default function ProductsClient() {
       {/* 左侧分类树 - 只显示分类 */}
       <aside className="lg:w-80 lg:flex-none lg:border-r lg:border-gray-200 lg:pr-6">
         <div className="lg:sticky lg:top-28">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">Categories</h2>
           <CategoryTree
             categories={categoryTree}
             onCategoryClick={handleCategoryClick}

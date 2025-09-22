@@ -32,15 +32,21 @@ export default function CategoryTree({ categories, level = 0, onCategoryClick, s
   };
 
   const getIndentClass = (level: number) => {
-    return `ml-${Math.min(level * 4, 16)}`;
+    if (level === 0) return 'ml-0';
+    if (level === 1) return 'ml-4';
+    if (level === 2) return 'ml-8';
+    if (level === 3) return 'ml-12';
+    return 'ml-16';
   };
 
   const getNodeClass = (level: number, isSelected: boolean) => {
     const baseClass = isSelected ? 'text-green-600 font-medium' : '';
     if (level === 0) {
-      return `text-lg font-semibold py-2 ${baseClass}`;
+      return `text-xl font-bold py-3 ${baseClass}`;
     } else if (level === 1) {
-      return `text-base font-medium py-1.5 ${baseClass}`;
+      return `text-base font-semibold py-2 ${baseClass}`;
+    } else if (level === 2) {
+      return `text-sm font-medium py-1.5 ${baseClass}`;
     } else {
       return `text-sm py-1 ${baseClass}`;
     }
@@ -76,9 +82,9 @@ export default function CategoryTree({ categories, level = 0, onCategoryClick, s
           <div key={category.id} className={getIndentClass(level)}>
             {/* 分类节点 */}
             <div 
-              className={`flex items-center justify-between group hover:bg-gray-50 rounded-md px-2 py-1 transition-colors cursor-pointer ${
-                isSelected ? 'bg-green-50 border-l-2 border-green-500' : ''
-              }`}
+              className={`flex items-center justify-between group hover:bg-gray-50 rounded-md px-3 py-2 transition-colors cursor-pointer ${
+                isSelected ? 'bg-green-50 border-l-4 border-green-500' : ''
+              } ${level === 0 ? 'border-b border-gray-200 pb-3 mb-2' : ''}`}
               onClick={() => handleCategoryClick(category)}
             >
               <div className="flex items-center space-x-2 flex-1">
