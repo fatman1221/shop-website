@@ -28,7 +28,7 @@ export default function CategoryTree({ categories, level = 0, onCategoryClick, s
   const isExpanded = (nodeId: string) => expandedNodes.has(nodeId);
 
   const hasChildren = (node: CategoryNode) => {
-    return (node.children && node.children.length > 0) || (node.products && node.products.length > 0);
+    return node.children && node.children.length > 0;
   };
 
   const getIndentClass = (level: number) => {
@@ -40,7 +40,7 @@ export default function CategoryTree({ categories, level = 0, onCategoryClick, s
   };
 
   const getNodeClass = (level: number, isSelected: boolean) => {
-    const baseClass = isSelected ? 'text-green-600 font-medium' : '';
+    const baseClass = isSelected ? 'text-[var(--brand-start)] font-medium' : '';
     if (level === 0) {
       return `text-xl font-bold py-3 ${baseClass}`;
     } else if (level === 1) {
@@ -83,7 +83,7 @@ export default function CategoryTree({ categories, level = 0, onCategoryClick, s
             {/* 分类节点 */}
             <div 
               className={`flex items-center justify-between group hover:bg-gray-50 rounded-md px-3 py-2 transition-colors cursor-pointer ${
-                isSelected ? 'bg-green-50 border-l-4 border-green-500' : ''
+                isSelected ? 'bg-[var(--brand-start)]/10 border-l-4 border-[var(--brand-start)]' : ''
               } ${level === 0 ? 'border-b border-gray-200 pb-3 mb-2' : ''}`}
               onClick={() => handleCategoryClick(category)}
             >
