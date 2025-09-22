@@ -671,15 +671,7 @@ export const categoryTree: CategoryNode[] = [
             name: '一次性剃须刀',
             nameEn: 'Disposable Razors',
             products: [
-              {
-                id: '11',
-                name: "Men's Disposable Razors",
-                nameEn: "Men's Disposable Razors",
-                sku: 'MDR001',
-                image: '/images/products/Men\'s Disposable Razors/1754458588_1550_2422247713.eps',
-                description: 'High-quality disposable razors for men.',
-                descriptionEn: 'High-quality disposable razors for men.'
-              },
+
               {
                 id: '12',
                 name: "Women's Disposable Razors",
