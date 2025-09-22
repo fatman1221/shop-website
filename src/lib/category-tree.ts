@@ -172,15 +172,7 @@ export const categoryTree: CategoryNode[] = [
                 name: '棉垫与圆形',
                 nameEn: 'Cotton Pads & Round',
                 products: [
-                  {
-                    id: '7',
-                    name: 'Cotton Pads',
-                    nameEn: 'Cotton Pads',
-                    sku: 'CP001',
-                    image: '/images/products/Cotton Pads/1753760779_1143_2629376269.eps',
-                    description: 'Soft cotton pads for makeup removal and skincare.',
-                    descriptionEn: 'Soft cotton pads for makeup removal and skincare.'
-                  },
+
                   {
                     id: '25',
                     name: 'BRDZ-KM213',
@@ -360,33 +352,297 @@ export const categoryTree: CategoryNode[] = [
             id: 'dental-floss-picks',
             name: '牙线与牙签',
             nameEn: 'Dental Floss & Picks',
-            products: [
+            children: [
               {
-                id: '8',
-                name: 'Dental Floss',
+                id: 'dental-floss',
+                name: '牙线',
                 nameEn: 'Dental Floss',
-                sku: 'DF001',
-                image: '/images/products/Dental Floss/1754460088_1436_1936651498.webp',
-                description: 'High-quality dental floss for oral hygiene.',
-                descriptionEn: 'High-quality dental floss for oral hygiene.'
+                products: [
+                  {
+                    id: '37',
+                    name: 'BRDZ-FD001',
+                    nameEn: 'BRDZ-FD001',
+                    sku: 'FD001',
+                    image: '/images/products/Dental Floss/BRDZ-FD001.png',
+                    description: 'High-quality dental floss for effective oral hygiene.',
+                    descriptionEn: 'High-quality dental floss for effective oral hygiene.'
+                  },
+                  {
+                    id: '38',
+                    name: 'BRDZ-FD002',
+                    nameEn: 'BRDZ-FD002',
+                    sku: 'FD002',
+                    image: '/images/products/Dental Floss/BRDZ-FD002.png',
+                    description: 'Premium dental floss for gentle cleaning.',
+                    descriptionEn: 'Premium dental floss for gentle cleaning.'
+                  },
+                  {
+                    id: '39',
+                    name: 'BRDZ-FD003',
+                    nameEn: 'BRDZ-FD003',
+                    sku: 'FD003',
+                    image: '/images/products/Dental Floss/BRDZ-FD003.png',
+                    description: 'Extra-strong dental floss for tough cleaning.',
+                    descriptionEn: 'Extra-strong dental floss for tough cleaning.'
+                  },
+                  {
+                    id: '40',
+                    name: 'BRDZ-FD004',
+                    nameEn: 'BRDZ-FD004',
+                    sku: 'FD004',
+                    image: '/images/products/Dental Floss/BRDZ-FD004.png',
+                    description: 'Flavored dental floss for fresh breath.',
+                    descriptionEn: 'Flavored dental floss for fresh breath.'
+                  },
+                  {
+                    id: '41',
+                    name: 'BRDZ-FD005',
+                    nameEn: 'BRDZ-FD005',
+                    sku: 'FD005',
+                    image: '/images/products/Dental Floss/BRDZ-FD005.png',
+                    description: 'Waxed dental floss for smooth cleaning.',
+                    descriptionEn: 'Waxed dental floss for smooth cleaning.'
+                  },
+                  {
+                    id: '42',
+                    name: 'BRDZ-FD006',
+                    nameEn: 'BRDZ-FD006',
+                    sku: 'FD006',
+                    image: '/images/products/Dental Floss/BRDZ-FD006.png',
+                    description: 'Unwaxed dental floss for natural cleaning.',
+                    descriptionEn: 'Unwaxed dental floss for natural cleaning.'
+                  },
+                  {
+                    id: '43',
+                    name: 'BRDZ-FD007',
+                    nameEn: 'BRDZ-FD007',
+                    sku: 'FD007',
+                    image: '/images/products/Dental Floss/BRDZ-FD007.png',
+                    description: 'Biodegradable dental floss for eco-friendly care.',
+                    descriptionEn: 'Biodegradable dental floss for eco-friendly care.'
+                  }
+                ]
               },
               {
-                id: '9',
-                name: 'Floss Picks',
+                id: 'floss-picks',
+                name: '牙签',
                 nameEn: 'Floss Picks',
-                sku: 'FP001',
-                image: '/images/products/Floss Picks/floss-picks-green.webp',
-                description: 'Convenient floss picks for easy cleaning.',
-                descriptionEn: 'Convenient floss picks for easy cleaning.'
+                products: [
+                  {
+                    id: '44',
+                    name: 'BRDZ-401',
+                    nameEn: 'BRDZ-401',
+                    sku: 'FP401',
+                    image: '/images/products/Floss Picks/BRDZ-401.png',
+                    description: 'Convenient floss picks for easy cleaning.',
+                    descriptionEn: 'Convenient floss picks for easy cleaning.'
+                  },
+                  {
+                    id: '45',
+                    name: 'BRDZ-4013',
+                    nameEn: 'BRDZ-4013',
+                    sku: 'FP4013',
+                    image: '/images/products/Floss Picks/BRDZ-4013.png',
+                    description: 'Professional floss picks for thorough cleaning.',
+                    descriptionEn: 'Professional floss picks for thorough cleaning.'
+                  },
+                  {
+                    id: '46',
+                    name: 'BRDZ-402',
+                    nameEn: 'BRDZ-402',
+                    sku: 'FP402',
+                    image: '/images/products/Floss Picks/BRDZ-402.png',
+                    description: 'Gentle floss picks for sensitive gums.',
+                    descriptionEn: 'Gentle floss picks for sensitive gums.'
+                  },
+                  {
+                    id: '47',
+                    name: 'BRDZ-BT002',
+                    nameEn: 'BRDZ-BT002',
+                    sku: 'FPBT002',
+                    image: '/images/products/Floss Picks/BRDZ-BT002.png',
+                    description: 'Bulk floss picks for commercial use.',
+                    descriptionEn: 'Bulk floss picks for commercial use.'
+                  },
+                  {
+                    id: '48',
+                    name: 'BRDZ-SFR004',
+                    nameEn: 'BRDZ-SFR004',
+                    sku: 'FPSFR004',
+                    image: '/images/products/Floss Picks/BRDZ-SFR004.png',
+                    description: 'Specialty floss picks for specific needs.',
+                    descriptionEn: 'Specialty floss picks for specific needs.'
+                  },
+                  {
+                    id: '49',
+                    name: 'BRDZ-SFR033',
+                    nameEn: 'BRDZ-SFR033',
+                    sku: 'FPSFR033',
+                    image: '/images/products/Floss Picks/BRDZ-SFR033.png',
+                    description: 'Advanced floss picks for professional cleaning.',
+                    descriptionEn: 'Advanced floss picks for professional cleaning.'
+                  },
+                  {
+                    id: '50',
+                    name: 'BRDZ-SFR036',
+                    nameEn: 'BRDZ-SFR036',
+                    sku: 'FPSFR036',
+                    image: '/images/products/Floss Picks/BRDZ-SFR036.png',
+                    description: 'Precision floss picks for tight spaces.',
+                    descriptionEn: 'Precision floss picks for tight spaces.'
+                  },
+                  {
+                    id: '51',
+                    name: 'BRDZ-SFR058',
+                    nameEn: 'BRDZ-SFR058',
+                    sku: 'FPSFR058',
+                    image: '/images/products/Floss Picks/BRDZ-SFR058.png',
+                    description: 'Multi-purpose floss picks for various needs.',
+                    descriptionEn: 'Multi-purpose floss picks for various needs.'
+                  },
+                  {
+                    id: '52',
+                    name: 'SNDZ-2508-FLP90',
+                    nameEn: 'SNDZ-2508-FLP90',
+                    sku: 'FLP90',
+                    image: '/images/products/Floss Picks/SNDZ-2508-FLP90.png',
+                    description: 'Professional floss picks for dental care.',
+                    descriptionEn: 'Professional floss picks for dental care.'
+                  }
+                ]
               },
               {
-                id: '10',
-                name: 'Interdental Brushes',
+                id: 'interdental-brushes',
+                name: '牙间刷',
                 nameEn: 'Interdental Brushes',
-                sku: 'IB001',
-                image: '/images/products/Interdental Brush/1754461152_1016_2041750517.eps',
-                description: 'Interdental brushes for thorough cleaning.',
-                descriptionEn: 'Interdental brushes for thorough cleaning.'
+                products: [
+                  {
+                    id: '53',
+                    name: 'BRDZ-501',
+                    nameEn: 'BRDZ-501',
+                    sku: 'IB501',
+                    image: '/images/products/Interdental Brush/BRDZ-501.png',
+                    description: 'High-quality interdental brushes for thorough cleaning.',
+                    descriptionEn: 'High-quality interdental brushes for thorough cleaning.'
+                  },
+                  {
+                    id: '54',
+                    name: 'BRDZ-502',
+                    nameEn: 'BRDZ-502',
+                    sku: 'IB502',
+                    image: '/images/products/Interdental Brush/BRDZ-502.png',
+                    description: 'Gentle interdental brushes for sensitive gums.',
+                    descriptionEn: 'Gentle interdental brushes for sensitive gums.'
+                  },
+                  {
+                    id: '55',
+                    name: 'BRDZ-503',
+                    nameEn: 'BRDZ-503',
+                    sku: 'IB503',
+                    image: '/images/products/Interdental Brush/BRDZ-503.png',
+                    description: 'Professional interdental brushes for dental care.',
+                    descriptionEn: 'Professional interdental brushes for dental care.'
+                  },
+                  {
+                    id: '56',
+                    name: 'BRDZ-BT1501',
+                    nameEn: 'BRDZ-BT1501',
+                    sku: 'IBBT1501',
+                    image: '/images/products/Interdental Brush/BRDZ-BT1501.png',
+                    description: 'Bulk interdental brushes for commercial use.',
+                    descriptionEn: 'Bulk interdental brushes for commercial use.'
+                  },
+                  {
+                    id: '57',
+                    name: 'BRDZ-BT1502',
+                    nameEn: 'BRDZ-BT1502',
+                    sku: 'IBBT1502',
+                    image: '/images/products/Interdental Brush/BRDZ-BT1502.png',
+                    description: 'Specialty interdental brushes for specific needs.',
+                    descriptionEn: 'Specialty interdental brushes for specific needs.'
+                  },
+                  {
+                    id: '58',
+                    name: 'BRDZ-BT1503',
+                    nameEn: 'BRDZ-BT1503',
+                    sku: 'IBBT1503',
+                    image: '/images/products/Interdental Brush/BRDZ-BT1503.png',
+                    description: 'Advanced interdental brushes for professional use.',
+                    descriptionEn: 'Advanced interdental brushes for professional use.'
+                  },
+                  {
+                    id: '59',
+                    name: 'BRDZ-BT1504',
+                    nameEn: 'BRDZ-BT1504',
+                    sku: 'IBBT1504',
+                    image: '/images/products/Interdental Brush/BRDZ-BT1504.png',
+                    description: 'Precision interdental brushes for tight spaces.',
+                    descriptionEn: 'Precision interdental brushes for tight spaces.'
+                  },
+                  {
+                    id: '60',
+                    name: 'BRDZ-BT1505',
+                    nameEn: 'BRDZ-BT1505',
+                    sku: 'IBBT1505',
+                    image: '/images/products/Interdental Brush/BRDZ-BT1505.png',
+                    description: 'Multi-size interdental brushes for various gaps.',
+                    descriptionEn: 'Multi-size interdental brushes for various gaps.'
+                  },
+                  {
+                    id: '61',
+                    name: 'BRDZ-BT1506',
+                    nameEn: 'BRDZ-BT1506',
+                    sku: 'IBBT1506',
+                    image: '/images/products/Interdental Brush/BRDZ-BT1506.png',
+                    description: 'Eco-friendly interdental brushes for sustainable care.',
+                    descriptionEn: 'Eco-friendly interdental brushes for sustainable care.'
+                  },
+                  {
+                    id: '62',
+                    name: 'BRDZ-BT1507',
+                    nameEn: 'BRDZ-BT1507',
+                    sku: 'IBBT1507',
+                    image: '/images/products/Interdental Brush/BRDZ-BT1507.png',
+                    description: 'Travel interdental brushes for on-the-go care.',
+                    descriptionEn: 'Travel interdental brushes for on-the-go care.'
+                  },
+                  {
+                    id: '63',
+                    name: 'BRDZ-BT1508',
+                    nameEn: 'BRDZ-BT1508',
+                    sku: 'IBBT1508',
+                    image: '/images/products/Interdental Brush/BRDZ-BT1508.png',
+                    description: 'Professional interdental brushes for dental offices.',
+                    descriptionEn: 'Professional interdental brushes for dental offices.'
+                  },
+                  {
+                    id: '64',
+                    name: 'BRDZ-SP001',
+                    nameEn: 'BRDZ-SP001',
+                    sku: 'IBSP001',
+                    image: '/images/products/Interdental Brush/BRDZ-SP001.png',
+                    description: 'Specialty interdental brushes for specific conditions.',
+                    descriptionEn: 'Specialty interdental brushes for specific conditions.'
+                  },
+                  {
+                    id: '65',
+                    name: 'BRDZ-SP004',
+                    nameEn: 'BRDZ-SP004',
+                    sku: 'IBSP004',
+                    image: '/images/products/Interdental Brush/BRDZ-SP004.png',
+                    description: 'Advanced interdental brushes for complex cleaning.',
+                    descriptionEn: 'Advanced interdental brushes for complex cleaning.'
+                  },
+                  {
+                    id: '66',
+                    name: 'BRDZ-SP005',
+                    nameEn: 'BRDZ-SP005',
+                    sku: 'IBSP005',
+                    image: '/images/products/Interdental Brush/BRDZ-SP005.png',
+                    description: 'Premium interdental brushes for optimal oral health.',
+                    descriptionEn: 'Premium interdental brushes for optimal oral health.'
+                  }
+                ]
               }
             ]
           },
