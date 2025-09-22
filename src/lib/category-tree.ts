@@ -952,7 +952,26 @@ export const categoryTree: CategoryNode[] = [
             id: 'bath-body-brushes',
             name: '沐浴与身体刷',
             nameEn: 'Bath & Body Brushes',
-            products: []
+            products: [
+              {
+                id: '106',
+                name: 'BRDZ-BB1701',
+                nameEn: 'BRDZ-BB1701',
+                sku: 'BB1701',
+                image: '/images/products/Bath & Bathing Accessories/BRDZ-BB1701.png',
+                description: 'High-quality bath brush for effective body cleansing.',
+                descriptionEn: 'High-quality bath brush for effective body cleansing.'
+              },
+              {
+                id: '107',
+                name: 'BRDZ-EG1601',
+                nameEn: 'BRDZ-EG1601',
+                sku: 'EG1601',
+                image: '/images/products/Bath & Bathing Accessories/BRDZ-EG1601.png',
+                description: 'Exfoliating glove for gentle and thorough exfoliation.',
+                descriptionEn: 'Exfoliating glove for gentle and thorough exfoliation.'
+              }
+            ]
           }
         ]
       },
