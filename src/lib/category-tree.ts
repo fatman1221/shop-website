@@ -671,15 +671,262 @@ export const categoryTree: CategoryNode[] = [
             name: '一次性剃须刀',
             nameEn: 'Disposable Razors',
             products: [
-
               {
-                id: '12',
+                id: '67',
+                name: "Men's Disposable Razors",
+                nameEn: "Men's Disposable Razors",
+                sku: 'MDR001',
+                image: '/images/products/Men\'s Disposable Razors/1754458588_1550_2422247713.eps',
+                description: 'High-quality disposable razors for men.',
+                descriptionEn: 'High-quality disposable razors for men.'
+              },
+              {
+                id: '68',
                 name: "Women's Disposable Razors",
                 nameEn: "Women's Disposable Razors",
                 sku: 'WDR001',
                 image: '/images/products/Women\'s Disposable Razors/1754458881_1202_2134009459.webp',
                 description: 'Smooth disposable razors for women.',
                 descriptionEn: 'Smooth disposable razors for women.'
+              }
+            ]
+          },
+          {
+            id: 'eyebrow-razor',
+            name: '眉毛剃刀',
+            nameEn: 'Eyebrow Razor',
+            products: [
+              {
+                id: '69',
+                name: 'BRDZ-S1C00T06',
+                nameEn: 'BRDZ-S1C00T06',
+                sku: 'ER001',
+                image: '/images/products/Eyebrow Razor/BRDZ-S1C00T06.png',
+                description: 'Precision eyebrow razor for delicate shaping.',
+                descriptionEn: 'Precision eyebrow razor for delicate shaping.'
+              },
+              {
+                id: '70',
+                name: 'BRDZ-S1P00201',
+                nameEn: 'BRDZ-S1P00201',
+                sku: 'ER002',
+                image: '/images/products/Eyebrow Razor/BRDZ-S1P00201.png',
+                description: 'Professional eyebrow razor for salon use.',
+                descriptionEn: 'Professional eyebrow razor for salon use.'
+              }
+            ]
+          },
+          {
+            id: 'shaving-razor',
+            name: '剃须刀',
+            nameEn: 'Shaving Razor',
+            products: [
+              {
+                id: '71',
+                name: 'BRDZ-K-360',
+                nameEn: 'BRDZ-K-360',
+                sku: 'SR001',
+                image: '/images/products/Shaving Razor/BRDZ-K-360.png',
+                description: 'High-quality shaving razor for smooth shaving.',
+                descriptionEn: 'High-quality shaving razor for smooth shaving.'
+              },
+              {
+                id: '72',
+                name: 'BRDZ-LA-8803',
+                nameEn: 'BRDZ-LA-8803',
+                sku: 'SR002',
+                image: '/images/products/Shaving Razor/BRDZ-LA-8803.png',
+                description: 'Professional shaving razor for barber use.',
+                descriptionEn: 'Professional shaving razor for barber use.'
+              },
+              {
+                id: '73',
+                name: 'BRDZ-LV-1269',
+                nameEn: 'BRDZ-LV-1269',
+                sku: 'SR003',
+                image: '/images/products/Shaving Razor/BRDZ-LV-1269.png',
+                description: 'Premium shaving razor with ergonomic design.',
+                descriptionEn: 'Premium shaving razor with ergonomic design.'
+              },
+              {
+                id: '74',
+                name: 'BRDZ-LV-3060',
+                nameEn: 'BRDZ-LV-3060',
+                sku: 'SR004',
+                image: '/images/products/Shaving Razor/BRDZ-LV-3060.png',
+                description: 'Multi-blade shaving razor for close shave.',
+                descriptionEn: 'Multi-blade shaving razor for close shave.'
+              },
+              {
+                id: '75',
+                name: 'BRDZ-LV-3081',
+                nameEn: 'BRDZ-LV-3081',
+                sku: 'SR005',
+                image: '/images/products/Shaving Razor/BRDZ-LV-3081.png',
+                description: 'Gentle shaving razor for sensitive skin.',
+                descriptionEn: 'Gentle shaving razor for sensitive skin.'
+              },
+              {
+                id: '76',
+                name: 'BRDZ-LV-3090',
+                nameEn: 'BRDZ-LV-3090',
+                sku: 'SR006',
+                image: '/images/products/Shaving Razor/BRDZ-LV-3090.png',
+                description: 'Advanced shaving razor with precision blades.',
+                descriptionEn: 'Advanced shaving razor with precision blades.'
+              },
+              {
+                id: '77',
+                name: 'BRDZ-LV-3260',
+                nameEn: 'BRDZ-LV-3260',
+                sku: 'SR007',
+                image: '/images/products/Shaving Razor/BRDZ-LV-3260.png',
+                description: 'Compact shaving razor for travel use.',
+                descriptionEn: 'Compact shaving razor for travel use.'
+              },
+              {
+                id: '78',
+                name: 'BRDZ-LV-3293',
+                nameEn: 'BRDZ-LV-3293',
+                sku: 'SR008',
+                image: '/images/products/Shaving Razor/BRDZ-LV-3293.png',
+                description: 'Luxury shaving razor with premium finish.',
+                descriptionEn: 'Luxury shaving razor with premium finish.'
+              },
+              {
+                id: '79',
+                name: 'BRDZ-LV-3301',
+                nameEn: 'BRDZ-LV-3301',
+                sku: 'SR009',
+                image: '/images/products/Shaving Razor/BRDZ-LV-3301.png',
+                description: 'Professional shaving razor for barbers.',
+                descriptionEn: 'Professional shaving razor for barbers.'
+              },
+              {
+                id: '80',
+                name: 'BRDZ-LV-5021',
+                nameEn: 'BRDZ-LV-5021',
+                sku: 'SR010',
+                image: '/images/products/Shaving Razor/BRDZ-LV-5021.png',
+                description: 'Heavy-duty shaving razor for thick beards.',
+                descriptionEn: 'Heavy-duty shaving razor for thick beards.'
+              },
+              {
+                id: '81',
+                name: 'BRDZ-LV-8617',
+                nameEn: 'BRDZ-LV-8617',
+                sku: 'SR011',
+                image: '/images/products/Shaving Razor/BRDZ-LV-8617.png',
+                description: 'Classic shaving razor with traditional design.',
+                descriptionEn: 'Classic shaving razor with traditional design.'
+              },
+              {
+                id: '82',
+                name: 'BRDZ-LV-8717',
+                nameEn: 'BRDZ-LV-8717',
+                sku: 'SR012',
+                image: '/images/products/Shaving Razor/BRDZ-LV-8717.png',
+                description: 'Modern shaving razor with innovative features.',
+                descriptionEn: 'Modern shaving razor with innovative features.'
+              },
+              {
+                id: '83',
+                name: 'BRDZ-LV-8732',
+                nameEn: 'BRDZ-LV-8732',
+                sku: 'SR013',
+                image: '/images/products/Shaving Razor/BRDZ-LV-8732.png',
+                description: 'Eco-friendly shaving razor for sustainable grooming.',
+                descriptionEn: 'Eco-friendly shaving razor for sustainable grooming.'
+              },
+              {
+                id: '84',
+                name: 'BRDZ-LV-8751',
+                nameEn: 'BRDZ-LV-8751',
+                sku: 'SR014',
+                image: '/images/products/Shaving Razor/BRDZ-LV-8751.png',
+                description: 'Precision shaving razor for detailed grooming.',
+                descriptionEn: 'Precision shaving razor for detailed grooming.'
+              },
+              {
+                id: '85',
+                name: 'BRDZ-LV-8756',
+                nameEn: 'BRDZ-LV-8756',
+                sku: 'SR015',
+                image: '/images/products/Shaving Razor/BRDZ-LV-8756.png',
+                description: 'Multi-purpose shaving razor for various needs.',
+                descriptionEn: 'Multi-purpose shaving razor for various needs.'
+              },
+              {
+                id: '86',
+                name: 'BRDZ-LV-8759',
+                nameEn: 'BRDZ-LV-8759',
+                sku: 'SR016',
+                image: '/images/products/Shaving Razor/BRDZ-LV-8759.png',
+                description: 'Advanced shaving razor with cutting-edge technology.',
+                descriptionEn: 'Advanced shaving razor with cutting-edge technology.'
+              },
+              {
+                id: '87',
+                name: 'BRDZ-LY-2304',
+                nameEn: 'BRDZ-LY-2304',
+                sku: 'SR017',
+                image: '/images/products/Shaving Razor/BRDZ-LY-2304.png',
+                description: 'Specialty shaving razor for specific grooming needs.',
+                descriptionEn: 'Specialty shaving razor for specific grooming needs.'
+              },
+              {
+                id: '88',
+                name: 'BRDZ-LY-2701',
+                nameEn: 'BRDZ-LY-2701',
+                sku: 'SR018',
+                image: '/images/products/Shaving Razor/BRDZ-LY-2701.png',
+                description: 'Professional shaving razor for salon use.',
+                descriptionEn: 'Professional shaving razor for salon use.'
+              },
+              {
+                id: '89',
+                name: 'BRDZ-MA-6620',
+                nameEn: 'BRDZ-MA-6620',
+                sku: 'SR019',
+                image: '/images/products/Shaving Razor/BRDZ-MA-6620.png',
+                description: 'Premium shaving razor with superior quality.',
+                descriptionEn: 'Premium shaving razor with superior quality.'
+              },
+              {
+                id: '90',
+                name: 'BRDZ-X-03',
+                nameEn: 'BRDZ-X-03',
+                sku: 'SR020',
+                image: '/images/products/Shaving Razor/BRDZ-X-03.png',
+                description: 'Compact shaving razor for easy handling.',
+                descriptionEn: 'Compact shaving razor for easy handling.'
+              },
+              {
+                id: '91',
+                name: 'BRDZ-X-08',
+                nameEn: 'BRDZ-X-08',
+                sku: 'SR021',
+                image: '/images/products/Shaving Razor/BRDZ-X-08.png',
+                description: 'Versatile shaving razor for multiple uses.',
+                descriptionEn: 'Versatile shaving razor for multiple uses.'
+              },
+              {
+                id: '92',
+                name: 'BRDZ-X7-001',
+                nameEn: 'BRDZ-X7-001',
+                sku: 'SR022',
+                image: '/images/products/Shaving Razor/BRDZ-X7-001.png',
+                description: 'Innovative shaving razor with unique design.',
+                descriptionEn: 'Innovative shaving razor with unique design.'
+              },
+              {
+                id: '93',
+                name: 'BRDZ-X7-002',
+                nameEn: 'BRDZ-X7-002',
+                sku: 'SR023',
+                image: '/images/products/Shaving Razor/BRDZ-X7-002.png',
+                description: 'Advanced shaving razor with modern features.',
+                descriptionEn: 'Advanced shaving razor with modern features.'
               }
             ]
           }
