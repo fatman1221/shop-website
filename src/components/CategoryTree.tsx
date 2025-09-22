@@ -113,8 +113,8 @@ export default function CategoryTree({ categories, level = 0, onCategoryClick, s
                   {category.nameEn}
                 </span>
                 
-                {/* 产品数量 */}
-                {hasProducts && (
+                {/* 产品数量 - 只在没有子分类且有产品时显示 */}
+                {!category.children && hasProducts && (
                   <span className="text-xs text-gray-400 bg-gray-100 px-2 py-0.5 rounded-full">
                     {category.products?.length || 0}
                   </span>
