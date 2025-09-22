@@ -33,48 +33,55 @@ export const categoryTree: CategoryNode[] = [
             id: 'cotton-balls-swabs',
             name: '棉球与棉签',
             nameEn: 'Cotton Balls & Swabs',
-            products: [
+            children: [
               {
-                id: '5',
-                name: 'SNDZ-CSW100 Cotton Swabs',
-                nameEn: 'SNDZ-CSW100 Cotton Swabs',
-                sku: 'CSW100',
-                image: '/images/products/Cotton Swabs/1754458293_1205_2506014983.webp',
-                description: '100-count cotton swabs per pack, stored in a clear hygienic box to prevent dust and facilitate daily use.',
-                descriptionEn: '100-count cotton swabs per pack, stored in a clear hygienic box to prevent dust and facilitate daily use.'
+                id: 'cotton-swabs',
+                name: '棉签',
+                nameEn: 'Cotton Swabs',
+                products: [
+                  {
+                    id: '5',
+                    name: 'SNDZ-CSW100 Cotton Swabs',
+                    nameEn: 'SNDZ-CSW100 Cotton Swabs',
+                    sku: 'CSW100',
+                    image: '/images/products/Cotton Swabs/1754458293_1205_2506014983.webp',
+                    description: '100-count cotton swabs per pack, stored in a clear hygienic box to prevent dust and facilitate daily use.',
+                    descriptionEn: '100-count cotton swabs per pack, stored in a clear hygienic box to prevent dust and facilitate daily use.'
+                  },
+                  {
+                    id: '6',
+                    name: 'SNDZ-CSW30 Mini Cotton Swabs',
+                    nameEn: 'SNDZ-CSW30 Mini Cotton Swabs',
+                    sku: 'CSW30',
+                    image: '/images/products/Cotton Swabs/1754460312_1947_2011384649.webp',
+                    description: '30 count cotton swabs per pack, stored in a clear hygienic box to prevent dust and facilitate daily use.',
+                    descriptionEn: '30 count cotton swabs per pack, stored in a clear hygienic box to prevent dust and facilitate daily use.'
+                  }
+                ]
               },
               {
-                id: '6',
-                name: 'SNDZ-CSW30 Mini Cotton Swabs',
-                nameEn: 'SNDZ-CSW30 Mini Cotton Swabs',
-                sku: 'CSW30',
-                image: '/images/products/Cotton Swabs/1754460312_1947_2011384649.webp',
-                description: '30 count cotton swabs per pack, stored in a clear hygienic box to prevent dust and facilitate daily use.',
-                descriptionEn: '30 count cotton swabs per pack, stored in a clear hygienic box to prevent dust and facilitate daily use.'
-              }
-            ]
-          },
-          {
-            id: 'cotton-pads-round',
-            name: '棉垫与圆形',
-            nameEn: 'Cotton Pads & Round',
-            products: [
+                id: 'cotton-pads-round',
+                name: '棉垫与圆形',
+                nameEn: 'Cotton Pads & Round',
+                products: [
+                  {
+                    id: '7',
+                    name: 'Cotton Pads',
+                    nameEn: 'Cotton Pads',
+                    sku: 'CP001',
+                    image: '/images/products/Cotton Pads/1753760779_1143_2629376269.eps',
+                    description: 'Soft cotton pads for makeup removal and skincare.',
+                    descriptionEn: 'Soft cotton pads for makeup removal and skincare.'
+                  }
+                ]
+              },
               {
-                id: '7',
-                name: 'Cotton Pads',
-                nameEn: 'Cotton Pads',
-                sku: 'CP001',
-                image: '/images/products/Cotton Pads/1753760779_1143_2629376269.eps',
-                description: 'Soft cotton pads for makeup removal and skincare.',
-                descriptionEn: 'Soft cotton pads for makeup removal and skincare.'
+                id: 'cotton-balls',
+                name: '棉球',
+                nameEn: 'Cotton Balls',
+                products: []
               }
             ]
-          },
-          {
-            id: 'cotton-balls',
-            name: '棉球',
-            nameEn: 'Cotton Balls',
-            products: []
           },
           {
             id: 'travel-sets-kits',
