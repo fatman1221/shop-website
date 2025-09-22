@@ -79,7 +79,26 @@ export const categoryTree: CategoryNode[] = [
                 id: 'cotton-balls',
                 name: '棉球',
                 nameEn: 'Cotton Balls',
-                products: []
+                products: [
+                  {
+                    id: '11',
+                    name: 'BRDZ-KM302',
+                    nameEn: 'BRDZ-KM302',
+                    sku: 'KM302',
+                    image: '/images/products/Cotton Balls/BRDZ-KM302.png',
+                    description: 'High-quality cotton balls for personal care and household use.',
+                    descriptionEn: 'High-quality cotton balls for personal care and household use.'
+                  },
+                  {
+                    id: '12',
+                    name: 'BRDZ-KM301',
+                    nameEn: 'BRDZ-KM301',
+                    sku: 'KM301',
+                    image: '/images/products/Cotton Balls/BRDZ-KM301.png',
+                    description: 'Premium cotton balls for gentle skincare and makeup application.',
+                    descriptionEn: 'Premium cotton balls for gentle skincare and makeup application.'
+                  }
+                ]
               }
             ]
           },
