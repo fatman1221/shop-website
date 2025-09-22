@@ -655,7 +655,20 @@ export const categoryTree: CategoryNode[] = [
                 id: 'sonic',
                 name: '声波',
                 nameEn: 'Sonic',
-                products: []
+                products: [
+                  { id: '94', name: 'BRDZ-EA317', nameEn: 'BRDZ-EA317', sku: 'EA317', image: '/images/products/Electric Toothbrush/BRDZ-EA317.jpg', description: 'Electric toothbrush with sonic technology for deep cleaning.', descriptionEn: 'Electric toothbrush with sonic technology for deep cleaning.' },
+                  { id: '95', name: 'BRDZ-EA318', nameEn: 'BRDZ-EA318', sku: 'EA318', image: '/images/products/Electric Toothbrush/BRDZ-EA318.jpg', description: 'Compact sonic electric toothbrush for daily use.', descriptionEn: 'Compact sonic electric toothbrush for daily use.' },
+                  { id: '96', name: 'BRDZ-EA323', nameEn: 'BRDZ-EA323', sku: 'EA323', image: '/images/products/Electric Toothbrush/BRDZ-EA323.jpg', description: 'Ergonomic handle, efficient plaque removal.', descriptionEn: 'Ergonomic handle, efficient plaque removal.' },
+                  { id: '97', name: 'BRDZ-EA325', nameEn: 'BRDZ-EA325', sku: 'EA325', image: '/images/products/Electric Toothbrush/BRDZ-EA325.jpg', description: 'Multiple modes for customized brushing experience.', descriptionEn: 'Multiple modes for customized brushing experience.' },
+                  { id: '98', name: 'BRDZ-EA355', nameEn: 'BRDZ-EA355', sku: 'EA355', image: '/images/products/Electric Toothbrush/BRDZ-EA355.jpg', description: 'Long battery life with fast charging.', descriptionEn: 'Long battery life with fast charging.' },
+                  { id: '99', name: 'BRDZ-EA357', nameEn: 'BRDZ-EA357', sku: 'EA357', image: '/images/products/Electric Toothbrush/BRDZ-EA357.jpg', description: 'Smart timer for dentist-recommended brushing time.', descriptionEn: 'Smart timer for dentist-recommended brushing time.' },
+                  { id: '100', name: 'BRDZ-EA370', nameEn: 'BRDZ-EA370', sku: 'EA370', image: '/images/products/Electric Toothbrush/BRDZ-EA370.jpg', description: 'Water-resistant design, ideal for daily hygiene.', descriptionEn: 'Water-resistant design, ideal for daily hygiene.' },
+                  { id: '101', name: 'BRDZ-EB511', nameEn: 'BRDZ-EB511', sku: 'EB511', image: '/images/products/Electric Toothbrush/BRDZ-EB511.jpg', description: 'Soft bristles for sensitive gums.', descriptionEn: 'Soft bristles for sensitive gums.' },
+                  { id: '102', name: 'BRDZ-EB516', nameEn: 'BRDZ-EB516', sku: 'EB516', image: '/images/products/Electric Toothbrush/BRDZ-EB516.jpg', description: 'Powerful sonic vibration for effective cleaning.', descriptionEn: 'Powerful sonic vibration for effective cleaning.' },
+                  { id: '103', name: 'BRDZ-EB520', nameEn: 'BRDZ-EB520', sku: 'EB520', image: '/images/products/Electric Toothbrush/BRDZ-EB520.png', description: 'Replaceable brush heads, hygienic storage.', descriptionEn: 'Replaceable brush heads, hygienic storage.' },
+                  { id: '104', name: 'BRDZ-ED710', nameEn: 'BRDZ-ED710', sku: 'ED710', image: '/images/products/Electric Toothbrush/BRDZ-ED710.png', description: 'Travel-friendly sonic toothbrush with case.', descriptionEn: 'Travel-friendly sonic toothbrush with case.' },
+                  { id: '105', name: 'BRDZ-ED716', nameEn: 'BRDZ-ED716', sku: 'ED716', image: '/images/products/Electric Toothbrush/BRDZ-ED716.jpg', description: 'Advanced sonic technology with multiple intensities.', descriptionEn: 'Advanced sonic technology with multiple intensities.' }
+                ]
               }
             ]
           }
@@ -671,15 +684,7 @@ export const categoryTree: CategoryNode[] = [
             name: '一次性剃须刀',
             nameEn: 'Disposable Razors',
             products: [
-              {
-                id: '67',
-                name: "Men's Disposable Razors",
-                nameEn: "Men's Disposable Razors",
-                sku: 'MDR001',
-                image: '/images/products/Men\'s Disposable Razors/1754458588_1550_2422247713.eps',
-                description: 'High-quality disposable razors for men.',
-                descriptionEn: 'High-quality disposable razors for men.'
-              },
+
               {
                 id: '68',
                 name: "Women's Disposable Razors",
