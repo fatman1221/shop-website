@@ -16,11 +16,5 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
     notFound();
   }
 
-  // 获取推荐产品（同类别的前3个产品）
-  const allProducts = getProducts();
-  const recommendedProducts = allProducts
-    .filter(p => p.categoryEn === product.categoryEn && p.id !== product.id)
-    .slice(0, 3);
-
-  return <ProductDetailClient product={product} recommendedProducts={recommendedProducts} />;
+  return <ProductDetailClient product={product} />;
 } 

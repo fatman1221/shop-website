@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import WebPImage from '@/components/WebPImage';
 import CategoryTree from '@/components/CategoryTree';
-import { categoryTree, ProductInfo, getAllProducts } from '@/lib/category-tree';
+import { categoryTree, ProductInfo } from '@/lib/category-tree';
 
 export default function ProductsClient() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -15,7 +15,7 @@ export default function ProductsClient() {
     setSelectedProducts(products);
   };
 
-  const allProducts = getAllProducts();
+  // no-op
 
   return (
     <div className="flex flex-col lg:flex-row gap-8">
@@ -99,7 +99,7 @@ export default function ProductsClient() {
               <div className="text-sm text-gray-500">
                 <p>• Click on categories to expand and view products</p>
                 <p>• Products will be displayed in the right panel</p>
-                <p>• Click "Details" to view full product information</p>
+                <p>• Click &quot;Details&quot; to view full product information</p>
               </div>
             </div>
           </div>

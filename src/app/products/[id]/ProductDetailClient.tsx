@@ -6,7 +6,6 @@ import { Product } from '@/types/product';
 
 interface ProductDetailClientProps {
   product: Product;
-  recommendedProducts: Product[];
 }
 
 // 棉签产品特殊信息
@@ -30,7 +29,7 @@ const getCottonSwabDetails = (productId: string) => {
   return details[productId];
 };
 
-export default function ProductDetailClient({ product, recommendedProducts }: ProductDetailClientProps) {
+export default function ProductDetailClient({ product }: ProductDetailClientProps) {
   const [showModal, setShowModal] = useState(false);
 
   // 获取棉签产品详细信息
