@@ -1,0 +1,177 @@
+'use client';
+
+import { getCompanyInfo } from '@/lib/client-data';
+import { useEffect, useRef, useState } from 'react';
+
+type GoogleTokenResponse = { access_token?: string };
+type GoogleTokenClient = { requestAccessToken: () => void } | null;
+type GoogleGlobal = {
+  accounts?: {
+    oauth2?: {
+      initTokenClient?: (options: {
+        client_id: string;
+        scope: string;
+        prompt?: string;
+        callback: (resp: GoogleTokenResponse) => void;
+      }) => GoogleTokenClient;
+    };
+  };
+};
+
+export default function ContactPage() {
+  const companyInfo = getCompanyInfo();
+  const [submitting, setSubmitting] = useState(false);
+  const [accessToken, setAccessToken] = useState<string | null>(null);
+  const tokenClientRef = useRef<GoogleTokenClient>(null);
+
+  const GOOGLE_CLIENT_ID = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
+  const PUBLIC_SHEETS_ID = process.env.NEXT_PUBLIC_SHEETS_ID;
+
+  // 动态加载 Google Identity Services（OAuth 2.0 for Web）
+  useEffect(() => {
+    if (!GOOGLE_CLIENT_ID) return;
+    if (typeof window === 'undefined') return;
+    const id = 'google-identity-services';
+    if (document.getElementById(id)) return;
+    const s = document.createElement('script');
+    s.id = id;
+    s.src = 'https://accounts.google.com/gsi/client';
+    s.async = true;
+    s.defer = true;
+    s.onload = () => {
+      try {
+        // 使用窄化的全局类型，避免 any
+        const g = (window as unknown as { google?: GoogleGlobal }).google;
+        tokenClientRef.current = (g?.accounts?.oauth2?.initTokenClient
+          ? g.accounts.oauth2.initTokenClient({
+          client_id: GOOGLE_CLIENT_ID,
+          scope: 'https://www.googleapis.com/auth/spreadsheets',
+          prompt: '',
+          callback: (resp: GoogleTokenResponse) => {
+            if (resp?.access_token) {
+              setAccessToken(resp.access_token);
+              console.log('[contact][OAUTH] token acquired');
+            } else {
+              console.warn('[contact][OAUTH] no token', resp);
+            }
+          },
+          })
+          : null);
+      } catch (e) {
+        console.error('[contact][OAUTH] init error', e);
+      }
+    };
+    document.body.appendChild(s);
+  }, [GOOGLE_CLIENT_ID]);
+
+  // 如果需要手动触发获取 token，可在 UI 中调用以下函数
+  // const requestGoogleToken = () => tokenClientRef.current?.requestAccessToken();
+
+  return (
+    <div className="bg-white">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        {/* 标题 */}
+        <section className="text-center mb-12">
+          <h1 className="text-5xl md:text-6xl font-light text-gray-900 tracking-tight mb-4">Contact Us</h1>
+          <p className="text-lg text-gray-600">We respond within 24 hours on business days</p>
+          <div className="w-28 h-0.5 mx-auto bg-gradient-to-r from-[var(--brand-start)] to-[var(--brand-end)] rounded-full mt-4" />
+        </section>
+
+        {/* 联系方式卡片（仅保留 Email，居中展示） */}
+        <section className="grid grid-cols-1 gap-4 mb-12 max-w-md mx-auto">
+          <a href={`mailto:${companyInfo.email}`} className="panel-brand border border-gray-200 rounded-xl p-6 text-center transition-transform duration-300 hover:shadow-md hover:-translate-y-1 animate-slide-up block" style={{animationDelay: '0ms'}}>
+            <div className="mx-auto mb-3 w-10 h-10 rounded-full bg-[color-mix(in_oklab,var(--brand-start)_20%,transparent)] text-brand flex items-center justify-center">
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16c.55 0 1 .45 1 1v10c0 .55-.45 1-1 1H4a1 1 0 0 1-1-1V7c0-.55.45-1 1-1Zm0 0l8 6 8-6"/></svg>
+            </div>
+            <div className="text-sm uppercase tracking-wider text-gray-500 mb-1">Email</div>
+            <div className="text-gray-900">{companyInfo.email}</div>
+          </a>
+        </section>
+
+        {/* 极简表单（品牌色） */}
+        <section>
+          <form className="space-y-4" onSubmit={async (e) => {
+            e.preventDefault();
+            const form = e.currentTarget as HTMLFormElement;
+            const formData = new FormData(form);
+            const payload = {
+              name: String(formData.get('name') || ''),
+              email: String(formData.get('email') || ''),
+              company: String(formData.get('company') || ''),
+              message: String(formData.get('message') || ''),
+            };
+            try {
+              setSubmitting(true);
+              const ctrl = new AbortController();
+              const timeout = setTimeout(() => ctrl.abort(), 120000); // 120s 超时，避免 Google 网络慢导致前端过早中断
+              const url = process.env.NEXT_PUBLIC_CONTACT_ENDPOINT || '/api/contact';
+              console.log('[contact][CLIENT] start', {
+                url,
+                online: typeof navigator !== 'undefined' ? navigator.onLine : undefined,
+                payload,
+                time: new Date().toISOString(),
+              });
+              let res: Response;
+              if (accessToken && PUBLIC_SHEETS_ID) {
+                // 直接调用 Google Sheets API（前端 OAuth 流程），写入 Sheet1!A:F
+                const endpoint = `https://sheets.googleapis.com/v4/spreadsheets/${PUBLIC_SHEETS_ID}/values/Sheet1!A:F:append?valueInputOption=RAW`;
+                const now = new Date().toISOString();
+                const values = [[now, payload.name, payload.email, payload.company || '', payload.message, '', navigator.userAgent || '']];
+                console.log('[contact][CLIENT] call Google API', endpoint);
+                res = await fetch(endpoint, {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${accessToken}`,
+                  },
+                  body: JSON.stringify({ values }),
+                  signal: ctrl.signal,
+                });
+              } else {
+                // 走后端中转（服务账号）
+                res = await fetch(url, {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify(payload),
+                  cache: 'no-store',
+                  signal: ctrl.signal,
+                });
+              }
+              clearTimeout(timeout);
+              if (res.ok) {
+                const data = await res.json().catch(() => ({}));
+                console.log('[contact][CLIENT] success', { status: res.status, data });
+                alert('Submitted successfully');
+                form.reset();
+              } else {
+                const data = await res.json().catch(() => ({}));
+                console.warn('[contact][CLIENT] failed', { status: res.status, data });
+                alert(data?.error || 'Submit failed');
+              }
+            } catch (err) {
+              const e = err as { name?: string; message?: string };
+              console.error('[contact][CLIENT] error', { name: e?.name, message: e?.message, err: e });
+              if (e?.name === 'AbortError') {
+                alert('已发送请求，服务器可能仍在写入，请稍后在表格中查看是否已新增。如未写入，请再试一次。');
+              } else {
+                alert('Network error, please try again.');
+              }
+            } finally {
+              setSubmitting(false);
+            }
+          }}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <input name="name" className="w-full px-4 py-3 rounded-lg input-brand" placeholder="Full Name *" required />
+              <input name="email" type="email" className="w-full px-4 py-3 rounded-lg input-brand" placeholder="Email *" required />
+            </div>
+            <input name="company" className="w-full px-4 py-3 rounded-lg input-brand" placeholder="Company" />
+            <textarea name="message" rows={6} className="w-full px-4 py-3 rounded-lg input-brand" placeholder="Message *" required />
+            <button type="submit" className="w-full btn-brand-grad disabled:opacity-60" disabled={submitting}>
+              {submitting ? 'Sending…' : 'Send'}
+            </button>
+          </form>
+        </section>
+      </div>
+    </div>
+  );
+} 
