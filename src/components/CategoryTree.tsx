@@ -53,22 +53,27 @@ export default function CategoryTree({ categories, level = 0, onCategoryClick, s
   };
 
   const handleCategoryClick = (category: CategoryNode) => {
-    // 收集该分类及其所有子分类下的所有产品
-    const allProducts: ProductInfo[] = [];
-    
-    const collectProducts = (node: CategoryNode) => {
-      if (node.products) {
-        allProducts.push(...node.products);
+    // 如果有子分类，则展开/收起
+    if (hasChildren(category)) {
+      toggleNode(category.id);
+    } else {
+      // 如果没有子分类，则选择该分类并显示其产品
+      const allProducts: ProductInfo[] = [];
+      
+      const collectProducts = (node: CategoryNode) => {
+        if (node.products) {
+          allProducts.push(...node.products);
+        }
+        if (node.children) {
+          node.children.forEach(collectProducts);
+        }
+      };
+      
+      collectProducts(category);
+      
+      if (allProducts.length > 0) {
+        onCategoryClick?.(category.id, allProducts);
       }
-      if (node.children) {
-        node.children.forEach(collectProducts);
-      }
-    };
-    
-    collectProducts(category);
-    
-    if (allProducts.length > 0) {
-      onCategoryClick?.(category.id, allProducts);
     }
   };
 
@@ -96,6 +101,7 @@ export default function CategoryTree({ categories, level = 0, onCategoryClick, s
                       toggleNode(category.id);
                     }}
                     className="w-5 h-5 flex items-center justify-center text-gray-500 hover:text-gray-700 transition-colors"
+                    aria-label={isExpanded(category.id) ? '收起子分类' : '展开子分类'}
                   >
                     <svg
                       className={`w-4 h-4 transition-transform ${isExpanded(category.id) ? 'rotate-90' : ''}`}
