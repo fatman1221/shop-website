@@ -33,6 +33,16 @@ body {
   position: relative;
 }
 
+html:has(.home-snap-page) {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+.home-snap-section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
 /* Blurred purple gradient background */
 /* Disabled global blurred background for a cleaner white canvas */
 body::before { display: none; }

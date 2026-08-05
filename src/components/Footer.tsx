@@ -33,11 +33,7 @@ export default function Footer() {
                   Home
                 </Link>
               </li>
-              <li>
-                <Link href="/products" className="text-gray-600 hover:text-gray-800 transition-colors">
-                  Products
-                </Link>
-              </li>
+              {/* Products route remains available; footer entry is hidden for now. */}
               <li>
                 <Link href="/about" className="text-gray-600 hover:text-gray-800 transition-colors">
                   About Us
@@ -68,7 +64,7 @@ export default function Footer() {
         <div className="border-t border-gray-200 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-600 text-sm">
-              © 2018 {companyInfo.nameEn}. All rights reserved.
+              © 2025 Brave Dazzle Inc · Los Angeles · Built for the passionate.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link href="#" className="text-gray-600 hover:text-gray-800 transition-colors">

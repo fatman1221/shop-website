@@ -47,9 +47,7 @@ export default function Navbar() {
                   className="object-contain"
                 />
               </div>
-              <span className={`text-xl font-light transition-colors duration-300 ${
-                isHomePage && !isScrolled ? 'text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]' : 'text-gray-900'
-              }`} style={isHomePage && !isScrolled ? { textShadow: '0 2px 8px rgba(0,0,0,0.8), 0 1px 4px rgba(0,0,0,0.4)' } : {}}>
+              <span className="text-xl font-light text-gray-900 transition-colors duration-300">
                 {companyInfo.nameEn}
               </span>
             </Link>
@@ -59,47 +57,27 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-8">
             <Link
               href="/"
-              className={`hover:text-purple-400 px-3 py-2 text-sm font-medium transition-colors duration-300 ${
-                isHomePage && !isScrolled ? 'text-white/95' : 'text-gray-700 hover:text-purple-600'
-              }`}
-              style={isHomePage && !isScrolled ? { textShadow: '0 2px 4px rgba(0,0,0,0.6)' } : {}}
+              className="px-3 py-2 text-sm font-medium text-gray-700 transition-colors duration-300 hover:text-purple-600"
             >
               Home
             </Link>
-            <Link
-              href="/products"
-              className={`hover:text-purple-400 px-3 py-2 text-sm font-medium transition-colors duration-300 ${
-                isHomePage && !isScrolled ? 'text-white/95' : 'text-gray-700 hover:text-purple-600'
-              }`}
-              style={isHomePage && !isScrolled ? { textShadow: '0 2px 4px rgba(0,0,0,0.6)' } : {}}
-            >
-              Products
-            </Link>
+            {/* Products route remains available; navigation entry is hidden for now. */}
             <Link
               href="/about"
-              className={`hover:text-purple-400 px-3 py-2 text-sm font-medium transition-colors duration-300 ${
-                isHomePage && !isScrolled ? 'text-white/95' : 'text-gray-700 hover:text-purple-600'
-              }`}
-              style={isHomePage && !isScrolled ? { textShadow: '0 2px 4px rgba(0,0,0,0.6)' } : {}}
+              className="px-3 py-2 text-sm font-medium text-gray-700 transition-colors duration-300 hover:text-purple-600"
             >
               About
             </Link>
             <Link
               href="/contact"
-              className={`hover:text-purple-400 px-3 py-2 text-sm font-medium transition-colors duration-300 ${
-                isHomePage && !isScrolled ? 'text-white/95' : 'text-gray-700 hover:text-purple-600'
-              }`}
-              style={isHomePage && !isScrolled ? { textShadow: '0 2px 4px rgba(0,0,0,0.6)' } : {}}
+              className="px-3 py-2 text-sm font-medium text-gray-700 transition-colors duration-300 hover:text-purple-600"
             >
               Contact
             </Link>
             {/* 暂时隐藏 ODM/OEM 页面
             <Link
               href="/odm"
-              className={`hover:text-purple-400 px-3 py-2 text-sm font-medium transition-colors duration-300 ${
-                isHomePage && !isScrolled ? 'text-white/95' : 'text-gray-700 hover:text-purple-600'
-              }`}
-              style={isHomePage && !isScrolled ? { textShadow: '0 2px 4px rgba(0,0,0,0.6)' } : {}}
+              className="px-3 py-2 text-sm font-medium text-gray-700 transition-colors duration-300 hover:text-purple-600"
             >
               ODM/OEM
             </Link>
@@ -110,10 +88,7 @@ export default function Navbar() {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`focus:outline-none transition-colors duration-300 ${
-                isHomePage && !isScrolled ? 'text-white' : 'text-gray-700'
-              }`}
-              style={isHomePage && !isScrolled ? { filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.6))' } : {}}
+              className="text-gray-700 transition-colors duration-300 focus:outline-none"
             >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 {isMenuOpen ? (
@@ -137,13 +112,7 @@ export default function Navbar() {
               >
                 Home
               </Link>
-              <Link
-                href="/products"
-                className="text-gray-700 hover:text-purple-600 block px-3 py-2 text-base font-medium transition-colors rounded-md hover:bg-purple-50"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Products
-              </Link>
+              {/* Products route remains available; navigation entry is hidden for now. */}
               <Link
                 href="/about"
                 className="text-gray-700 hover:text-purple-600 block px-3 py-2 text-base font-medium transition-colors rounded-md hover:bg-purple-50"
