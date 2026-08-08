@@ -5,34 +5,34 @@ import { FormEvent, useState } from 'react';
 
 const workSteps = [
   {
-    title: 'Fan Mapping',
-    text: "We immerse ourselves in fan communities - Discord, Reddit, forums, and real-life gatherings. We learn what they truly care about, what turns them off, and what they'd actually pay for.",
+    title: 'Fan Insights',
+    text: 'We listen to your fans - where they hang out, what they say, what they actually buy. No guessing. Just real data from real communities.',
   },
   {
-    title: 'IP Character Incubation',
-    text: 'We incubate original IP characters from the ground up - concept design, visual development, and full character creation - to boost brand recognition and market impact.',
+    title: 'IP Positioning',
+    text: 'We study your IP - its world, style, characters, and tone. We make sure every product feels like it belongs, not like a random logo drop.',
   },
   {
-    title: 'Product Innovation',
-    text: 'Based on fan insights, we design products fans genuinely want - not logo-stamped merch, but items they would proudly show off as a badge of belonging.',
+    title: 'Product Creation',
+    text: 'We design and produce merch fans actually want - plush, pins, cards, apparel, and more. High quality, fast sampling, low MOQ to start.',
   },
   {
-    title: 'Global Orchestration',
-    text: 'You name the destination - Europe, North America, Southeast Asia, anywhere. We figure out the route. No middlemen, no handoffs.',
+    title: 'Go-to-Market',
+    text: 'We make it and we help you sell it - online, in stores, or through crowdfunding. You focus on your IP, we handle the commercial side.',
   },
 ];
 
 const stats = [
-  { value: '100+', label: 'Product Categories' },
+  { value: '50+', label: 'Product Categories' },
   { value: '150+', label: 'Global Warehouses' },
   { value: '<7', label: 'Sample in 7 Days' },
   { value: '<100', label: 'Minimum Order' },
 ];
 
 const startOptions = [
-  'Start with a Fan Expansion Note',
-  'Show me 3 concept sketches',
-  'Start with a physical prototype',
+  'Help me explore product ideas',
+  'Show me samples',
+  'Start with a prototype',
 ];
 
 export default function HomePage() {
@@ -104,10 +104,10 @@ export default function HomePage() {
           <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_280px] lg:items-center">
             <div className="max-w-4xl">
               <h1 className="max-w-4xl text-5xl font-semibold leading-[1.02] text-neutral-950 md:text-7xl lg:text-8xl">
-                Turn niche passions into global resonance
+                Your IP deserves to live beyond the screen
               </h1>
               <p className="mt-8 max-w-2xl text-lg leading-8 text-neutral-600 md:text-xl">
-                Full-spectrum IP product solutions - from design to market activation.
+                We design, produce, and ship physical products for indie IP. One team, one process.
               </p>
               <div className="mt-10 flex flex-col gap-3 sm:flex-row">
                 <a
@@ -173,10 +173,10 @@ export default function HomePage() {
           <div>
             <p className="mb-3 text-sm font-semibold uppercase text-brand">Let&apos;s talk.</p>
             <h2 className="text-4xl font-semibold tracking-tight md:text-6xl">
-              A conversation costs nothing. A partnership starts here.
+              No fees. No pressure. Just a conversation.
             </h2>
             <p className="mt-6 max-w-xl text-base leading-7 text-neutral-600">
-              Tell us the IP, audience, and first move you have in mind. We will help turn the signal into a practical product path.
+              Tell us about your IP, your fans, and what you&apos;re thinking. We&apos;ll turn it into a clear product plan.
             </p>
           </div>
 

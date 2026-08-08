@@ -63,12 +63,6 @@ export default function Navbar() {
             </Link>
             {/* Products route remains available; navigation entry is hidden for now. */}
             <Link
-              href="/about"
-              className="px-3 py-2 text-sm font-medium text-gray-700 transition-colors duration-300 hover:text-purple-600"
-            >
-              About
-            </Link>
-            <Link
               href="/contact"
               className="px-3 py-2 text-sm font-medium text-gray-700 transition-colors duration-300 hover:text-purple-600"
             >
@@ -113,13 +107,6 @@ export default function Navbar() {
                 Home
               </Link>
               {/* Products route remains available; navigation entry is hidden for now. */}
-              <Link
-                href="/about"
-                className="text-gray-700 hover:text-purple-600 block px-3 py-2 text-base font-medium transition-colors rounded-md hover:bg-purple-50"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                About
-              </Link>
               <Link
                 href="/contact"
                 className="text-gray-700 hover:text-purple-600 block px-3 py-2 text-base font-medium transition-colors rounded-md hover:bg-purple-50"

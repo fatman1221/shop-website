@@ -43,6 +43,10 @@ html:has(.home-snap-page) {
   scroll-snap-stop: always;
 }
 
+.home-footer-snap {
+  scroll-snap-align: end;
+}
+
 /* Blurred purple gradient background */
 /* Disabled global blurred background for a cleaner white canvas */
 body::before { display: none; }

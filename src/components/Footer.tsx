@@ -6,7 +6,7 @@ export default function Footer() {
   const companyInfo = getCompanyInfo();
 
   return (
-    <footer className="bg-white text-gray-800">
+    <footer className="home-footer-snap bg-white text-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -34,11 +34,6 @@ export default function Footer() {
                 </Link>
               </li>
               {/* Products route remains available; footer entry is hidden for now. */}
-              <li>
-                <Link href="/about" className="text-gray-600 hover:text-gray-800 transition-colors">
-                  About Us
-                </Link>
-              </li>
               <li>
                 <Link href="/contact" className="text-gray-600 hover:text-gray-800 transition-colors">
                   Contact
