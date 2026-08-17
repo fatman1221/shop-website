@@ -88,7 +88,7 @@ export default function ProductsClient() {
                     src={product.image}
                     alt={product.name}
                     fill
-                    className="object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+                    className="object-cover object-center transition-transform duration-300 group-hover:scale-[1.02]"
                     sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
                   />
                 </div>
