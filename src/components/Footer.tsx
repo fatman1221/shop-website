@@ -33,7 +33,11 @@ export default function Footer() {
                   Home
                 </Link>
               </li>
-              {/* Products route remains available; footer entry is hidden for now. */}
+              <li>
+                <Link href="/products" className="text-gray-600 hover:text-gray-800 transition-colors">
+                  Products
+                </Link>
+              </li>
               <li>
                 <Link href="/contact" className="text-gray-600 hover:text-gray-800 transition-colors">
                   Contact

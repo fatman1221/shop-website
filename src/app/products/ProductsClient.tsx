@@ -1,112 +1,110 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
-import WebPImage from '@/components/WebPImage';
-import CategoryTree from '@/components/CategoryTree';
-import { categoryTree, ProductInfo } from '@/lib/category-tree';
+import Image from 'next/image';
+import { ipProductCategories, ipProducts } from '@/data/ip-products';
 
 export default function ProductsClient() {
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [selectedProducts, setSelectedProducts] = useState<ProductInfo[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState('all');
+  const visibleProducts = selectedCategory === 'all'
+    ? ipProducts
+    : ipProducts.filter((product) => product.categoryId === selectedCategory);
+  const selectedCategoryName = selectedCategory === 'all'
+    ? 'All Products'
+    : ipProductCategories.find((category) => category.id === selectedCategory)?.name ?? 'Products';
 
-  const handleCategoryClick = (categoryId: string, products: ProductInfo[]) => {
-    setSelectedCategory(categoryId);
-    setSelectedProducts(products);
-  };
-
-  // no-op
+  const getCategoryCount = (categoryId: string) => (
+    ipProducts.filter((product) => product.categoryId === categoryId).length
+  );
 
   return (
-    <div className="flex flex-col lg:flex-row gap-8">
-      {/* 左侧分类树 - 只显示分类 */}
-      <aside className="lg:w-80 lg:flex-none lg:border-r lg:border-gray-200 lg:pr-6">
-        <div className="lg:sticky lg:top-28">
-          <CategoryTree
-            categories={categoryTree}
-            onCategoryClick={handleCategoryClick}
-            selectedCategory={selectedCategory}
-          />
+    <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:gap-12">
+      <aside className="lg:sticky lg:top-28 lg:w-64 lg:flex-none">
+        <h2 className="mb-4 text-sm font-semibold uppercase text-gray-500">
+          Categories
+        </h2>
+
+        <div className="flex gap-2 overflow-x-auto pb-2 lg:block lg:space-y-1 lg:overflow-visible lg:pb-0">
+          <button
+            type="button"
+            onClick={() => setSelectedCategory('all')}
+            className={`flex min-h-11 shrink-0 items-center justify-between gap-4 rounded-md px-4 py-3 text-left text-sm transition-colors lg:w-full ${
+              selectedCategory === 'all'
+                ? 'bg-[var(--brand-start)] text-white'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+            }`}
+          >
+            <span className="font-medium">All Products</span>
+            <span className={selectedCategory === 'all' ? 'text-white/75' : 'text-gray-500'}>
+              {ipProducts.length}
+            </span>
+          </button>
+
+          {ipProductCategories.map((category) => {
+            const isSelected = selectedCategory === category.id;
+
+            return (
+              <button
+                key={category.id}
+                type="button"
+                onClick={() => setSelectedCategory(category.id)}
+                className={`flex min-h-11 shrink-0 items-center justify-between gap-4 rounded-md px-4 py-3 text-left text-sm transition-colors lg:w-full ${
+                  isSelected
+                    ? 'bg-[var(--brand-start)] text-white'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
+              >
+                <span className="font-medium">{category.name}</span>
+                <span className={isSelected ? 'text-white/75' : 'text-gray-500'}>
+                  {getCategoryCount(category.id)}
+                </span>
+              </button>
+            );
+          })}
         </div>
       </aside>
 
-      {/* 右侧商品展示区域 */}
-      <div className="flex-1">
-        {selectedProducts.length > 0 ? (
-          /* 显示选中分类的商品 */
-          <div>
-            <div className="mb-6">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-2">
-                {selectedProducts[0]?.nameEn || 'Products'}
-              </h2>
-              <p className="text-gray-600">
-                {selectedProducts.length} product{selectedProducts.length !== 1 ? 's' : ''} found
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {selectedProducts.map((product) => (
-                <div
-                  key={product.id}
-                  className="group relative overflow-hidden rounded-2xl bg-white shadow-sm border border-gray-200 hover:shadow-md transition-all hover:border-green-500"
-                >
-                  <div className="relative aspect-[4/3] w-full">
-                    <WebPImage
-                      src={product.image}
-                      alt={product.nameEn}
-                      fill
-                      className="object-contain w-full h-full transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    />
-                  </div>
-                  
-                  <div className="p-4 sm:p-5">
-                    <h3 className="text-sm font-medium text-gray-900 truncate mb-1">
-                      {product.nameEn}
-                    </h3>
-                    <p className="text-xs text-gray-500 mb-2">SKU: {product.sku}</p>
-                    
-                    {product.descriptionEn && (
-                      <p className="text-xs text-gray-600 mb-4 line-clamp-2">
-                        {product.descriptionEn}
-                      </p>
-                    )}
-                    
-                    <div className="flex gap-2">
-                      <Link
-                        href={`/products/${product.id}`}
-                        className="btn-brand-grad btn-sm flex-1 text-center"
-                      >
-                        Details
-                      </Link>
-                    </div>
-                  </div>
+      <section className="min-w-0 flex-1" aria-live="polite">
+        <div className="mb-6 flex items-end justify-between gap-4 border-b border-gray-200 pb-4">
+          <h2 className="text-2xl font-semibold text-gray-950 md:text-3xl">
+            {selectedCategoryName}
+          </h2>
+          <p className="shrink-0 text-sm text-gray-500">
+            {visibleProducts.length} product{visibleProducts.length === 1 ? '' : 's'}
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
+          {visibleProducts.map((product) => {
+            const category = ipProductCategories.find((item) => item.id === product.categoryId);
+
+            return (
+              <article
+                key={product.id}
+                className="group overflow-hidden rounded-lg border border-gray-200 bg-white transition-shadow hover:shadow-md"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden bg-white">
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    className="object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                  />
                 </div>
-              ))}
-            </div>
-          </div>
-        ) : (
-          /* 默认欢迎信息 */
-          <div className="text-center py-20">
-            <div className="max-w-md mx-auto">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                Welcome to Our Products
-              </h3>
-              <p className="text-gray-600 mb-6">
-                Browse our comprehensive range of beauty and personal care products. 
-                Click on any category to view products.
-              </p>
-              <div className="text-sm text-gray-500">
-                <p>• Click on categories to expand and view products</p>
-                <p>• Products will be displayed in the right panel</p>
-                <p>• Click &quot;Details&quot; to view full product information</p>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
+                <div className="border-t border-gray-100 p-5">
+                  <p className="mb-2 text-xs font-semibold uppercase text-[var(--brand-start)]">
+                    {category?.name}
+                  </p>
+                  <h3 className="text-lg font-semibold text-gray-950">
+                    {product.name}
+                  </h3>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </section>
     </div>
   );
 }
-
-

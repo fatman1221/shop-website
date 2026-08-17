@@ -61,7 +61,14 @@ export default function Navbar() {
             >
               Home
             </Link>
-            {/* Products route remains available; navigation entry is hidden for now. */}
+            <Link
+              href="/products"
+              className={`px-3 py-2 text-sm font-medium transition-colors duration-300 hover:text-[var(--brand-start)] ${
+                pathname.startsWith('/products') ? 'text-[var(--brand-start)]' : 'text-gray-700'
+              }`}
+            >
+              Products
+            </Link>
             <Link
               href="/contact"
               className="px-3 py-2 text-sm font-medium text-gray-700 transition-colors duration-300 hover:text-purple-600"
@@ -106,7 +113,15 @@ export default function Navbar() {
               >
                 Home
               </Link>
-              {/* Products route remains available; navigation entry is hidden for now. */}
+              <Link
+                href="/products"
+                className={`block rounded-md px-3 py-2 text-base font-medium transition-colors hover:bg-teal-50 hover:text-[var(--brand-start)] ${
+                  pathname.startsWith('/products') ? 'bg-teal-50 text-[var(--brand-start)]' : 'text-gray-700'
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Products
+              </Link>
               <Link
                 href="/contact"
                 className="text-gray-700 hover:text-purple-600 block px-3 py-2 text-base font-medium transition-colors rounded-md hover:bg-purple-50"
