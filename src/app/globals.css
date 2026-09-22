@@ -33,18 +33,9 @@ body {
   position: relative;
 }
 
-html:has(.home-snap-page) {
-  scroll-snap-type: y mandatory;
+/* Smooth scrolling */
+html {
   scroll-behavior: smooth;
-}
-
-.home-snap-section {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-}
-
-.home-footer-snap {
-  scroll-snap-align: end;
 }
 
 /* Blurred purple gradient background */

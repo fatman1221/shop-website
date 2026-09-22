@@ -39,3 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# workbuddy project data
+.workbuddy/
+
+# local design docs
+*.docx
+AGENTS.md
+CLAUDE.md
