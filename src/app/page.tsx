@@ -6,12 +6,11 @@ import { FormEvent, useCallback, useEffect, useRef, useState } from 'react';
 
 const heroSlides = [
   { src: '/images/hero/hero-1-web.jpg', alt: 'Hand-painted enamel pins in production' },
-  { src: '/images/hero/hero-2-web.jpg', alt: 'IP merchandise sampling' },
-  { src: '/images/hero/hero-3-web.jpg', alt: 'Collectible figures craftsmanship' },
-  { src: '/images/hero/hero-4-web.jpg', alt: 'Plush and soft goods production' },
-  { src: '/images/hero/hero-5-web.jpg', alt: 'Product packaging and design' },
-  { src: '/images/hero/hero-6-web.jpg', alt: 'IP-themed accessories' },
-  { src: '/images/hero/hero-7-web.jpg', alt: 'Finished merchandise collection' },
+  { src: '/images/hero/hero-2-web.jpg', alt: 'Custom embroidered cap' },
+  { src: '/images/hero/hero-3-web.jpg', alt: 'Tabletop game dice and components' },
+  { src: '/images/hero/hero-4-web.jpg', alt: 'Colorful wooden toy blocks' },
+  { src: '/images/hero/hero-puppet-web.jpg', alt: 'Custom plush hand puppet' },
+  { src: '/images/hero/hero-7-web.jpg', alt: 'Snow globe collectible' },
 ];
 
 const workSteps = [
